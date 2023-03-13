@@ -16,6 +16,12 @@ void insert_end(Node** root, int value)
 	new_node->next = NULL;
 	new_node->data = value;
 
+	if (*root == NULL) 
+	{
+		*root = new_node;
+		return;
+	}
+
 	Node* curr = *root;
 	while (curr->next != NULL) 
 	{
@@ -27,15 +33,20 @@ void insert_end(Node** root, int value)
 //int main(int argc, char* argv[]) {
 int main(void) {
 	int n = 0;
-	Node root;
-	root.data = 42;
-	root.next = malloc(sizeof(Node));
-	root.next -> data = -2;
-	root.next -> next = malloc(sizeof(Node));
-	root.next -> next -> data = 2;
-	root.next -> next -> next = NULL;
+	Node* root = NULL;
+	// Node* root = malloc(sizeof(Node));
+	// if (root == NULL) 
+	// {
+	// 	exit (2);
+	// }
+	// root->data = 42;
+	// root->next = NULL;
+	
+	insert_end(&root, -4);
+	insert_end(&root, 177);
+	insert_end(&root, 7);
 
-	Node* curr = &root;
+	Node* curr = root;
 	while (curr != NULL) {
 		printf("Elemento %d: %d\n", n+1, curr->data);
 		n++;
@@ -46,7 +57,6 @@ int main(void) {
 		printf("Elemento %d: %d\n", n+1, curr->data);
 		n++;
 	} */
-	free(root.next->next);
-	free(root.next);
-    return 0;
+	
+	return 0;
 }

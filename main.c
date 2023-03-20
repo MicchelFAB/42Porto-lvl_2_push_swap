@@ -3,9 +3,11 @@
 int main(int argc, char **argv) 
 {
     int i;
-	int str[2][i];
+	int *stsha;
+	int *stshb;
 	
-	*str = (int*)malloc(sizeof(int) * (argc-1));
+	stsha = (int*)malloc(sizeof(int) * (argc-1));
+	stshb = (int*)malloc(sizeof(int) * (argc-1));
 	i = 1;
 	while(i < argc)
 	{
@@ -14,25 +16,26 @@ int main(int argc, char **argv)
 			printf("Error: No arguments enouth");
 			return (0);
 		}
-		str[i-1] = ft_atoi(argv[i]);
+		stsha[i-1] = ft_atoi(argv[i]);
 		i++;
 	}
 
-	// ft_ra(&str);
-	ft_rra(&str);
-	// ft_sa(&str[0], &str[1]);
+	ft_ra(&stsha);
+	ft_rra(&stsha);
+	ft_sa(&stsha[0], &stsha[1]);
 	i = 0;
 	while(i < argc-1)
 	{
-		printf("%d ", str[i]);
+		printf("%d ", stsha[i]);
 		i++;
 	}
-	// if (ft_ra(&str) == 1)
-	// 	printf("\nra");
-	// if (ft_sa(&str[0], &str[1]) == 1)
-	// 	printf("\nsa");
-	if (ft_rra(&str) == 1)
-		printf("\nrra");
-	free(str);
+	printf("\n");
+	if (ft_ra(&stsha) == 1)
+		printf("ra\n");
+	if (ft_sa(&stsha[0], &stsha[1]) == 1)
+		printf("sa\n");
+	if (ft_rra(&stsha) == 1)
+		printf("rra\n");
+	free(stsha);
 	return (0);
 }

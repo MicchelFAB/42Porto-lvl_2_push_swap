@@ -20,22 +20,32 @@ int main(int argc, char **argv)
 		i++;
 	}
 
-	ft_ra(&stsha);
-	ft_rra(&stsha);
-	ft_sa(&stsha[0], &stsha[1]);
+	// ft_ra(&stsha);
+	// ft_rra(&stsha);
+	// ft_sa(&stsha[0], &stsha[1]);
+	ft_pa(&stsha, &stshb[0]);
 	i = 0;
 	while(i < argc-1)
 	{
 		printf("%d ", stsha[i]);
 		i++;
 	}
+	i = 0;
 	printf("\n");
-	if (ft_ra(&stsha) == 1)
-		printf("ra\n");
-	if (ft_sa(&stsha[0], &stsha[1]) == 1)
-		printf("sa\n");
-	if (ft_rra(&stsha) == 1)
-		printf("rra\n");
+	while(i < argc-1)
+	{
+		printf("%d ", stshb[i]);
+		i++;
+	}
+	printf("\n");
+	// if (ft_ra(&stsha) == 1)
+	// 	printf("ra\n");
+	// if (ft_sa(&stsha[0], &stsha[1]) == 1)
+	// 	printf("sa\n");
+	// if (ft_rra(&stsha) == 1)
+	// 	printf("rra\n");
+	// if (ft_pa(&stsha, stshb[0]) == 1)
+	// 	printf("pa\n");
 	free(stsha);
 	return (0);
 }

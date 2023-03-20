@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/15 13:50:25 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:15:21 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	ft_ra(int **a);
 int ft_rra(int **a);
 int	ft_atoi(const char *nptr);
 size_t	ft_strlen(int *s);
+int ft_pa(int **a, int **b);
 
 #endif

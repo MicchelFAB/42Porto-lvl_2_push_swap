@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:13:10 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/20 19:15:06 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:16:16 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,25 @@
 
 int ft_pa(int **a, int **b)
 {
-	int *ptr;
-	size_t i;
+    int len_a = ft_arrlen(*a);
+    int len_b = ft_arrlen(*b);
 
-	i = 0;
-	ptr = malloc(sizeof(int) * (ft_strlen(*a) + 1));
-	while (i < ft_strlen(*a))
-	{
-		ptr[i + 1] = (*a)[i];
-		i++;
-	}
-	ptr[0] = *b[0];
-	*a = ptr;
-	return (1);
+    if (len_a == 0)
+        return (0);
+
+    *b = (int*)realloc(*b, (len_b + 1) * sizeof(int));
+    if (*b == NULL)
+        return (-1);
+
+    (*b)[len_b] = (*a)[0];
+
+    for (int i = 0; i < len_a - 1; i++)
+        (*a)[i] = (*a)[i + 1];
+    (*a) = (int*)realloc(*a, (len_a - 1) * sizeof(int));
+    if (*a == NULL && len_a > 1)
+        return (-1);
+    return (1);
 }
-
 // int main (int argc, char **argv)
 // {
 // 	int *a;

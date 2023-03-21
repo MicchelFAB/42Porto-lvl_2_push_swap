@@ -12,23 +12,26 @@
 //     return (alloc);
 // }
 
-int ft_pa(int **a, int **b, int len_a, int len_b)
+int ft_pb(int **a, int **b, int *len_a, int *len_b)
 {
-    if (len_a == 0)
+    if (*len_a == 0)
         return (0);
 
-    *b = ft_realloc(*b, (len_b + 1) * sizeof(int));
+    *b = ft_realloc(*b, (*len_b + 1) * sizeof(int));
     if (*b == NULL)
         return (-1);
 
-    (*b)[len_b] = (*a)[len_a-1];
+    (*b)[*len_b] = (*a)[*len_a-1];
 
-	for (int i = 0; i < len_a - 1; i++)
+	for (int i = 0; i < *len_a - 1; i++)
 		(*a)[i] = (*a)[i + 1];
 
-    *a = ft_realloc(*a, (len_a - 1) * sizeof(int));
-    if (*a == NULL && len_a > 1)
+    *a = ft_realloc(*a, (*len_a - 1) * sizeof(int));
+    if (*a == NULL && *len_a > 1)
         return (-1);
+
+    (*len_a)--;
+    (*len_b)++;
 
     return (1);
 }
@@ -51,14 +54,14 @@ int main(int argc, char **argv)
 
     int len_a = argc - 1;
     int len_b = 0;
-    ft_pa(&a, &b, len_a, len_b);
+    ft_pb(&a, &b, &len_a, &len_b);
 
     printf("stack a: ");
     for (int j = 0; j < len_a; j++)
         printf("%d ", a[j]);
 
     printf("\nstack b: ");
-    for (int j = 0; j < len_b + 1; j++)
+    for (int j = 0; j < len_b; j++)
         printf("%d ", b[j]);
 
     printf("\n");

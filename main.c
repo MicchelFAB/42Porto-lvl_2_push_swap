@@ -6,19 +6,20 @@ int main(int argc, char **argv)
 	int *stsha;
 	int *stshb;
 	
+	if (argc < 2)
+	{
+		printf("Error: No arguments enouth");
+		return (0);
+	}
 	stsha = (int*)malloc(sizeof(int) * (argc-1));
 	stshb = (int*)malloc(sizeof(int) * (argc-1));
 	i = 1;
 	while(i < argc)
 	{
-		if (argc < 3)
-		{
-			printf("Error: No arguments enouth");
-			return (0);
-		}
 		stsha[i-1] = ft_atoi(argv[i]);
 		i++;
 	}
+
 
 	// ft_ra(&stsha);
 	// ft_rra(&stsha);

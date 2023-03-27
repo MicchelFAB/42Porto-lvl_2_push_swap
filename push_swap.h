@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/27 19:57:47 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:30:02 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,27 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-/* int ft_sa(int *a, int *b);
+// function that execute the instructions
+int ft_sa(int *a, int *b);
 int	ft_ra(int **a);
 int ft_rra(int **a);
 int	ft_atoi(const char *nptr);
-size_t	ft_strlen(int *s);
 int ft_pa(int **a, int **b, int *len_a, int *len_b);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-long long int ft_atol(const char *nptr);
+
+// function that interact with the stack
 int *ft_realloc(int *a, int len);
+long long int ft_atol(const char *nptr);
+
+// function from libft
+size_t	ft_strlen(int *s);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
-int ft_pb(int **a, int **b, int *len_a, int *len_b);
 void	*ft_memset(void *s, int c, size_t n);
-#endif */
+
+// function that check the stack for errors
+int ft_check_stack(int *a, int len);
+int ft_check_double(int *a, int len);
+int ft_check_sort(int *a, int len);
+char *ft_check_char(char *str);
+
+#endif

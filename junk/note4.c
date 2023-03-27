@@ -29,7 +29,6 @@ int ft_pa(int **a, int **b, int *len_a, int *len_b)
 	return (1);
 }
 
-
 int main(int argc, char **argv)
 {
 	int *a;

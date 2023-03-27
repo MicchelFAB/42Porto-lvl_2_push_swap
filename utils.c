@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/27 11:18:51 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/03/27 19:59:41 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,15 +94,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-int *ft_realloc(int *a, int len)
-{
-    int *alloc;
-    alloc = (int *)malloc(sizeof(int) * len);
-    if (!alloc)
-        exit(1);
-    alloc = ft_memcpy(alloc, a, sizeof(int) * len);
-    return (alloc);
-}
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -131,3 +122,47 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*d;
+	unsigned char	*s;
+
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	while (n > 0)
+	{
+		*d = *s;
+		d++;
+		s++;
+		n--;
+	}
+	return (dest);
+}
+
+int *ft_realloc(int *a, int len)
+{
+    int *alloc;
+	int i;
+	
+    alloc = (int *)malloc(sizeof(int) * len);
+    if (!alloc)
+	{
+		exit(1);
+	}
+	i = 0;
+	while (i < len)
+	{
+		if (i < len - 1)
+			alloc[i] = a[i];
+		else
+			alloc[i] = 0;
+		i++;
+	}
+    alloc = ft_memcpy(alloc, a, sizeof(int) * len);
+	free(a);
+    return (alloc);
+}
+

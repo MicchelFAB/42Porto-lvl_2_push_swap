@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/workspaces/42Porto-lvl_2_push_swap",
-      "program": "/workspaces/42Porto-lvl_2_push_swap/build/Debug/outDebug",
+      "cwd": "/nfs/homes/mamaral-/Desktop/42Cursus/Github/42Porto-lvl_2_push_swap/junk",
+      "program": "/nfs/homes/mamaral-/Desktop/42Cursus/Github/42Porto-lvl_2_push_swap/junk/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

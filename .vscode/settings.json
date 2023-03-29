@@ -33,10 +33,11 @@
     "**/.vscode",
     "**/.vscode/**"
   ],
-"C_Cpp_Runner.useAddressSanitizer": false,
-"C_Cpp.errorSquiggles": "disabled",
-"files.associations": {
+  "C_Cpp_Runner.useAddressSanitizer": false,
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
 	"stdlib.h": "c",
-	"stdio.h": "c"
+	"stdio.h": "c",
+	"libft.h": "c"
 }
 }

@@ -1,6 +1,6 @@
 PUSH = dummy.a
 CC 			= cc
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra -Werror -g
 AR			= ar rcs
 RM			= rm -rf
 
@@ -30,11 +30,11 @@ $(LIBFT):
 
 clean:
 	@make clean -C ./libft
-	$(RM) $(OBJ-S) 
+	$(RM) $(OBJ-S) *.o
 
 fclean: clean
 	@make fclean -C ./libft
-	$(RM) $(PUSH)
+	$(RM) $(PUSH) *.a
 	
 re:			fclean all
 

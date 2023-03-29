@@ -71,7 +71,7 @@
 
 	int len_a = argc - 1;
 	int len_b = 0;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		ft_pa(&a, &b, &len_a, &len_b);
 	}

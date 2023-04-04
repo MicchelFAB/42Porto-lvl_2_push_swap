@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: michel <michel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/29 10:44:19 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/05 00:10:04 by michel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-int *ft_realloc(int *a, int len)
+/* int *ft_realloc(int *a, int len)
 {
     int *alloc;
 	int i;
@@ -125,3 +125,18 @@ int *ft_realloc(int *a, int len)
     return (alloc);
 }
 
+ */
+
+void		*ft_realloc(void *ptr, size_t size)
+{
+	void	*new_ptr;
+
+	if (ptr == NULL)
+		return (malloc(size));
+	if (!size)
+		return (ptr);
+	new_ptr = malloc(size);
+	ft_memcpy(new_ptr, ptr, size);
+	free(ptr);
+	return (new_ptr);
+}

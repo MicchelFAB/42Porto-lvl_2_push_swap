@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: michel <michel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/04 15:21:27 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/05 00:10:15 by michel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void ft_pb(int **a, int **b, int *len_a, int *len_b);
 
 
 // function that interact with the stack
-int *ft_realloc(int *a, int len);
+void		*ft_realloc(void *ptr, size_t size);
 long long int ft_atol(const char *nptr);
 
 // function from libft

@@ -6,42 +6,43 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 13:49:37 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/28 19:21:29 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:16:50 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_rra(int **a)
+void ft_reverse_rotate(int **stack)
 {
 	int	*ptr;
 	size_t	i;
 
 	i = 0;
-	ptr = malloc(sizeof(int) * (ft_intlen(*a) + 1));
-	while(i < ft_intlen(*a) - 1)
+	ptr = malloc(sizeof(int) * (ft_intlen(*stack) + 1));
+	while(i < ft_intlen(*stack) - 1)
 	{
-		ptr[i+1] = (*a)[i];
+		ptr[i+1] = (*stack)[i];
 		i++;
 	}
-	ptr[0] = (*a)[ft_intlen(*a) - 1];
-	*a = ptr;
-	return (1);
+	ptr[0] = (*stack)[ft_intlen(*stack) - 1];
+	*stack = ptr;
 }
 
-int ft_rrb(int **b)
+void ft_rra(int **a)
 {
-	int	*ptr;
-	size_t	i;
+	ft_reverse_rotate(a);
+	ft_putstr_fd("rra\n", 1);
+}
 
-	i = 0;
-	ptr = malloc(sizeof(int) * (ft_intlen(*b) + 1));
-	while(i < ft_intlen(*b) - 1)
-	{
-		ptr[i+1] = (*b)[i];
-		i++;
-	}
-	ptr[0] = (*b)[ft_intlen(*b) - 1];
-	*b = ptr;
-	return (1);
+void ft_rrb(int **b)
+{
+	ft_reverse_rotate(b);
+	ft_putstr_fd("rrb\n", 1);
+}
+
+void ft_rrr(int **a, int **b)
+{
+	ft_reverse_rotate(a);
+	ft_reverse_rotate(b);
+	ft_putstr_fd("rrr\n", 1);
 }

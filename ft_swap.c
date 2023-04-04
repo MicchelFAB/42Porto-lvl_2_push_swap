@@ -6,26 +6,36 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:40:39 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/20 15:18:14 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:21:53 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_sa(int *a, int *b)
+void ft_swap(int **stack)
 {
     int tmp;
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
-    return (1);
+    
+	tmp = (*stack)[0];
+	(*stack)[0] = (*stack)[1];
+	(*stack)[1] = tmp;
 }
 
-int ft_sb(int *x, int *y)
+void ft_sa(int **a)
 {
-    int tmp;
-    tmp = *x;
-    *x = *y;
-    *y = tmp;
-    return (1);
+	ft_swap(a);
+	ft_putstr_fd("sa\n", 1);
+}
+
+void ft_sb(int **b)
+{
+	ft_swap(b);
+	ft_putstr_fd("sb\n", 1);
+}
+
+void ft_ss(int **a, int **b)
+{
+	ft_swap(a);
+	ft_swap(b);
+	ft_putstr_fd("ss\n", 1);
 }

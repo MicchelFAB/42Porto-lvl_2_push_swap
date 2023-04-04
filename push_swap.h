@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/29 12:52:30 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:21:27 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,28 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-// function that execute the instructions
-int ft_sa(int *a, int *b);
-int	ft_ra(int **a);
-int ft_rra(int **a);
-int ft_pa(int **a, int **b, int *len_a, int *len_b);
+// function that execute rotation of the stack
+void	ft_rotate(int **stack);
+void	ft_ra(int **a);
+void	ft_rb(int **b);
+void	ft_rr(int **a, int **b);
+
+// function that execute reverse rotation of the stack
+void ft_reverse_rotate(int **stack);
+void ft_rra(int **a);
+void ft_rrb(int **b);
+void ft_rrr(int **a, int **b);
+
+// function that execute swap of the stack
+void ft_swap(int **stack);
+void ft_sa(int **a);
+void ft_sb(int **b);
+void ft_ss(int **a, int **b);
+
+// function that execute push of the stack
+void ft_push(int **a, int **b, int *len_a, int *len_b);
+void ft_pa(int **a, int **b, int *len_a, int *len_b);
+void ft_pb(int **a, int **b, int *len_a, int *len_b);
 
 
 // function that interact with the stack

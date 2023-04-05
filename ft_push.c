@@ -6,7 +6,7 @@
 /*   By: michel <michel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:13:10 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/05 00:04:39 by michel           ###   ########.fr       */
+/*   Updated: 2023/04/05 10:06:10 by michel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,13 @@ void	ft_push(int **a, int **b, int *len_a, int *len_b)
 {
 	if (*len_a == 0)
 		exit(0);
-	if (*len_b == 0)
-	{	
-		*b = ft_realloc(*b, sizeof(int) * (*len_b + 1));
-		//ft_calloc(**b, sizeof(int) * (*len_b + 1));
-		(*b)[0] = (*a)[0];
-		ft_memmove(*a, *a + 1, sizeof(int) * (*len_a - 1));
-		*len_a -= 1;
-		*a = ft_realloc(*a, sizeof(int) * *len_a);
-		*len_b += 1;
-	}
-	else
-	{
-		*b = ft_realloc(*b, sizeof(int) * (*len_b + 1));
-		ft_memmove(*b + 1, *b, sizeof(int) * (*len_b));
-		(*b)[0] = (*a)[0];
-		ft_memmove(*a, *a + 1, sizeof(int) * (*len_a - 1));
-		*len_a -= 1;
-		*a = ft_realloc(*a, sizeof(int) * *len_a);
-		*len_b += 1;
-	}
+	*b = realloc(*b, sizeof(int) * (*len_b + 1));
+	ft_memmove(*b + 1, *b, sizeof(int) * (*len_b));
+	(*b)[0] = (*a)[0];
+	ft_memmove(*a, *a + 1, sizeof(int) * (*len_a - 1));
+	*len_a -= 1;
+	*a = ft_realloc(*a, sizeof(int) * *len_a);
+	*len_b += 1;
 }
 
 void	ft_pa(int **a, int **b, int *len_a, int *len_b)

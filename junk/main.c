@@ -41,15 +41,15 @@ int main(int argc, char **argv)
 	// 	printf("%d ", stsha[i]);
 	// 	i++;
 	// }
-	// printf("\nstack a: \n");
-    // for (int j = 0; j < len_a; j++)
-    //     printf("%02d\n", stsha[j]);
+	printf("\nstack a: \n");
+    for (int j = 0; j < len_a; j++)
+        printf("%02d\n", stsha[j]);
 
-    // printf("\nstack b: \n");
-    // for (int j = 0; j < len_b; j++)
-    //     printf("%02d\n", stshb[j]);
+    printf("\nstack b: \n");
+    for (int j = 0; j < len_b; j++)
+        printf("%02d\n", stshb[j]);
 
-    // printf("\n");
+    printf("\n");
     free(stsha);
     free(stshb);
     return (0);

@@ -27,14 +27,14 @@ int main(int argc, char **argv)
 	i = 0;
 			
 	ft_pa(&stsha, &stshb, &len_a, &len_b);
-	ft_pa(&stsha, &stshb, &len_a, &len_b);
-	ft_pa(&stsha, &stshb, &len_a, &len_b);
+	//ft_pa(&stsha, &stshb, &len_a, &len_b);
+	//ft_pa(&stsha, &stshb, &len_a, &len_b);
 	
-	// ft_ra(&stsha);
+	// ft_ra(&stsha, len_a);
 	// ft_rra(&stsha);
 	// ft_sa(&stsha);
 	// ft_rb(&stshb);
-	// ft_rrr(&stsha, &stshb);
+	//ft_rrr(&stsha, &stshb);
 	// i = 0;
 	// while(i < argc-1)
 	// {

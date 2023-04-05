@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:59:49 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/04 15:18:35 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/05 11:54:21 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_rotate(int **stack)
 		i++;
 	}
 	ptr[ft_intlen(*stack) - 1] = (*stack)[0];
+	free(*stack);
 	*stack = ptr;
 }
 

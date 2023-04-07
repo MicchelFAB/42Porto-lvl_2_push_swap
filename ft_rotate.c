@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:59:49 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/05 15:25:07 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:23:32 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,18 @@ void	ft_ra(int **a, size_t len_a)
 {
 	ft_rotate(a, len_a);
 	ft_putstr_fd("ra\n", 1);
+	// ** DEBUG **
+	printf("\nstack a: \n");
+	ft_print_stack(*a, (size_t)len_a);
 }
 
 void	ft_rb(int **b, size_t len_b)
 {
 	ft_rotate(b, len_b);
 	ft_putstr_fd("rb\n", 1);
+	// ** DEBUG **
+	printf("\nstack b: \n");
+	ft_print_stack(*b, (size_t)len_b);
 }
 
 void	ft_rr(int **a, int **b, size_t len_a, size_t len_b)
@@ -46,4 +52,9 @@ void	ft_rr(int **a, int **b, size_t len_a, size_t len_b)
 	ft_rotate(a, len_a);
 	ft_rotate(b, len_b);
 	ft_putstr_fd("rr\n", 1);
+	// ** DEBUG **
+	printf("\nstack a: \n");
+	ft_print_stack(*a, (size_t)len_a);
+	printf("\nstack b: \n");
+	ft_print_stack(*b, (size_t)len_b);
 }

@@ -18,21 +18,26 @@ int main(int argc, char **argv)
 	stshb = (int*)malloc(sizeof(int) * (argc-1));
 	i = 0;
 	
-	stshb[0] = 0;
 	while (++i < argc)
 		stsha[i - 1] = ft_atol(argv[i]);
 
 	len_a = argc - 1;
 	len_b = 0;
 	i = 0;
-			
-	ft_pa(&stsha, &stshb, &len_a, &len_b);
-	//ft_pa(&stsha, &stshb, &len_a, &len_b);
-	//ft_pa(&stsha, &stshb, &len_a, &len_b);
-	
-	// ft_ra(&stsha, len_a);
-	// ft_rra(&stsha);
+
+	ft_sort3(&stsha, len_a);
+
+	printf("-+-+-+-++---+-+-+-+-+-\n");
+
+	// ft_pb(&stsha, &stshb, &len_a, &len_b);
+	// ft_pb(&stsha, &stshb, &len_a, &len_b);
+	// ft_pa(&stsha, &stshb, &len_a, &len_b);
+		
 	// ft_sa(&stsha);
+	// ft_ra(&stsha, len_a);
+	// ft_rrr(&stsha, &stshb, len_a, len_b);
+	// ft_sb(&stshb);
+	// ft_pb(&stsha, &stshb, &len_a, &len_b);
 	// ft_rb(&stshb);
 	//ft_rrr(&stsha, &stshb);
 	// i = 0;
@@ -43,11 +48,11 @@ int main(int argc, char **argv)
 	// }
 	printf("\nstack a: \n");
     for (int j = 0; j < len_a; j++)
-        printf("%02d\n", stsha[j]);
+        printf("%02d ", stsha[j]);
 
     printf("\nstack b: \n");
     for (int j = 0; j < len_b; j++)
-        printf("%02d\n", stshb[j]);
+        printf("%02d ", stshb[j]);
 
     printf("\n");
     free(stsha);

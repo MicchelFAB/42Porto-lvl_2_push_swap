@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/05 13:46:13 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:17:00 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,49 @@ void	*ft_realloc(void *ptr, size_t size)
 	ft_memcpy(new_ptr, ptr, size);
 	free(ptr);
 	return (new_ptr);
+}
+
+
+void ft_print_stack(int *a, int len_a)
+{
+    int i;
+
+    for (i = 0; i < len_a; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
+
+
+int ft_min(int *a, int len_a)
+{
+	int i;
+	int min;
+
+	i = 0;
+	min = a[0];
+	while (i < len_a)
+	{
+		if (a[i] < min)
+			min = a[i];
+		i++;
+	}
+	return (min);
+}
+
+int ft_max(int *a, int len_a)
+{
+	int i;
+	int max;
+
+	i = 0;
+	max = a[0];
+	while (i < len_a)
+	{
+		if (a[i] > max)
+			max = a[i];
+		i++;
+	}
+	return (max);
 }

@@ -6,18 +6,22 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 09:12:07 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/07 15:37:51 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/10 11:29:54 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void *ft_sort3(int **stack, int len) // 3 2 1
+void ft_sort3(int **stack, int len) // 3 2 1
 {
-    if ((*stack)[1] > (*stack)[2])
+	int a = (*stack)[0];
+	int b = (*stack)[1];
+	int c = (*stack)[2];
+		
+    if (b > c)
     {
-        if ((*stack)[0] > (*stack)[1])
-        {
+        if (a > b)
+       {
             ft_ra(stack, len);
             ft_sa(stack);
 			// ** DEBUG **
@@ -26,7 +30,7 @@ void *ft_sort3(int **stack, int len) // 3 2 1
         else
         {
             ft_rra(stack, len);
-            if ((*stack)[0] > (*stack)[2])
+            if (a < c)
             {
                 ft_sa(stack);
 				// ** DEBUG **
@@ -36,16 +40,19 @@ void *ft_sort3(int **stack, int len) // 3 2 1
     }
     else //(y < z)
     {
-        if ((*stack)[0] > (*stack)[2])
+        if (a > c)
         {
             ft_ra(stack, len);
         }
-        else if ((*stack)[0] > (*stack)[1])
-        {
+        else if (a > b)
+       {
             ft_sa(stack);
 			// ** DEBUG **
 			ft_print_stack(*stack, len);
         }
     }
-	return (0);
+	// if (a > b  || a > c || b > c)
+	// {
+	// 	ft_sort3(stack, len);
+	// }
 }

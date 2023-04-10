@@ -26,9 +26,7 @@ int main(int argc, char **argv)
 	i = 0;
 
 	ft_sort3(&stsha, len_a);
-
-	printf("-+-+-+-++---+-+-+-+-+-\n");
-
+	
 	// ft_pb(&stsha, &stshb, &len_a, &len_b);
 	// ft_pb(&stsha, &stshb, &len_a, &len_b);
 	// ft_pa(&stsha, &stshb, &len_a, &len_b);

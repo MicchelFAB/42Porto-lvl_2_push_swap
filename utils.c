@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/07 15:17:00 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/10 14:57:29 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,19 +108,19 @@ void	*ft_memset(void *s, int c, size_t n)
 
  */
 
-void	*ft_realloc(void *ptr, size_t size)
-{
-	void	*new_ptr;
+// void	*ft_realloc(void *ptr, size_t size)
+// {
+// 	void	*new_ptr;
 
-	if (ptr == NULL)
-		return (malloc(size));
-	if (!size)
-		return (ptr);
-	new_ptr = malloc(size);
-	ft_memcpy(new_ptr, ptr, size);
-	free(ptr);
-	return (new_ptr);
-}
+// 	if (ptr == NULL)
+// 		return (malloc(size));
+// 	if (!size)
+// 		return (ptr);
+// 	new_ptr = malloc(size);
+// 	ft_memcpy(new_ptr, ptr, size);
+// 	free(ptr);
+// 	return (new_ptr);
+// }
 
 
 void ft_print_stack(int *a, int len_a)

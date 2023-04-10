@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 09:12:07 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/10 11:29:54 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:10:59 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void ft_sort3(int **stack, int len) // 3 2 1
        {
             ft_ra(stack, len);
             ft_sa(stack);
-			// ** DEBUG **
-			ft_print_stack(*stack, len);
         }
         else
         {
@@ -33,8 +31,6 @@ void ft_sort3(int **stack, int len) // 3 2 1
             if (a < c)
             {
                 ft_sa(stack);
-				// ** DEBUG **
-				ft_print_stack(*stack, len);
             }
         }
     }
@@ -47,8 +43,6 @@ void ft_sort3(int **stack, int len) // 3 2 1
         else if (a > b)
        {
             ft_sa(stack);
-			// ** DEBUG **
-			ft_print_stack(*stack, len);
         }
     }
 	// if (a > b  || a > c || b > c)

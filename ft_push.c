@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:13:10 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/07 15:29:14 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:10:39 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,9 @@ void	ft_pb(int **a, int **b, int *len_a, int *len_b)
 {
 	ft_push(a, b, len_a, len_b);
 	ft_putstr_fd("pb\n", 1);
-	// ** DEBUG **
-	printf("\nstack a: \n");
-	ft_print_stack(*a, *len_a);
-    printf("\nstack b: \n");
-    ft_print_stack(*b, *len_b);
-    printf("\n");
 }
 void	ft_pa(int **a, int **b, int *len_a, int *len_b)
 {
 	ft_push(b, a, len_b, len_a);
 	ft_putstr_fd("pa\n", 1);
-	// ** DEBUG **
-	printf("\nstack a: \n");
-	ft_print_stack(*a, *len_a);
-    printf("\nstack b: \n");
-    ft_print_stack(*b, *len_b);
-    printf("\n");
 }

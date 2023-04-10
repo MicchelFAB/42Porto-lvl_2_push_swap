@@ -24,9 +24,6 @@ int main(int argc, char **argv)
         a[i - 1] = atoi(argv[i]);
     }
     
-    ft_print_stack(a, len_a);
-
-    // Free the memory
     free(a);
 
     return 0;

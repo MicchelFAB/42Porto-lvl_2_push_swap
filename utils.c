@@ -3,40 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/10 14:57:29 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:15:01 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-/* int	ft_atoi(const char *nptr)
-{
-	int	res;
-	int	sinal;
-
-	res = 0;
-	sinal = 1;
-	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-')
-		sinal *= -1;
-	if (*nptr == '-' || *nptr == '+')
-		nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		res = res * 10 + *nptr - '0';
-		nptr++;
-	}
-	return (res * sinal);
-}
- */
-long long int ft_atol(const char *nptr)
+long long int	ft_atol(const char *nptr)
 {
 	long long int	res;
-	int	sinal;
+	int				sinal;
 
 	res = 0;
 	sinal = 1;
@@ -52,34 +31,6 @@ long long int ft_atol(const char *nptr)
 		nptr++;
 	}
 	return (res * sinal);
-}
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	unsigned char	*d;
-	unsigned char	*s;
-
-	d = dest;
-	s = (unsigned char *)src;
-	if (dest < src)
-		return (ft_memcpy(dest, src, n));
-	if (dest > src)
-		while (n--)
-			d[n] = s[n];
-	return (dest);
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	char	*p;
-
-	p = (char *)s;
-	while (n > 0)
-	{
-		p[n - 1] = c;
-		n--;
-	}
-	return (s);
 }
 
 /* int *ft_realloc(int *a, int len)
@@ -108,32 +59,32 @@ void	*ft_memset(void *s, int c, size_t n)
 
  */
 
-// void	*ft_realloc(void *ptr, size_t size)
-// {
-// 	void	*new_ptr;
-
-// 	if (ptr == NULL)
-// 		return (malloc(size));
-// 	if (!size)
-// 		return (ptr);
-// 	new_ptr = malloc(size);
-// 	ft_memcpy(new_ptr, ptr, size);
-// 	free(ptr);
-// 	return (new_ptr);
-// }
-
-
-void ft_print_stack(int *a, int len_a)
+void	*ft_realloc(void *ptr, size_t size)
 {
-    int i;
+	void	*new_ptr;
 
-    for (i = 0; i < len_a; i++)
-    {
-        printf("%d ", a[i]);
-    }
-    printf("\n");
+	if (ptr == NULL)
+		return (malloc(size));
+	if (!size)
+		return (ptr);
+	new_ptr = malloc(size);
+	ft_memcpy(new_ptr, ptr, size);
+	free(ptr);
+	return (new_ptr);
 }
 
+void	ft_print_stack(int *a, int len_a)
+{
+	int	i;
+
+	i = 0;
+	while (i < len_a)
+	{
+		printf("%d ", a[i]);
+		i++;
+	}
+	printf("\n");
+}
 
 int ft_min(int *a, int len_a)
 {

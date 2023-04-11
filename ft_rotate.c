@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:59:49 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/07 15:23:32 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/11 10:02:40 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_rotate(int **stack, size_t len)
 {
-	int	*ptr;
+	int		*ptr;
 	size_t	i;
 
 	i = 1;
 	ptr = malloc(sizeof(int) * len);
-	while(i < len)
+	while (i < len)
 	{
-		ptr[i-1] = (*stack)[i];
+		ptr[i - 1] = (*stack)[i];
 		i++;
 	}
 	ptr[len - 1] = (*stack)[0];
@@ -33,18 +33,12 @@ void	ft_ra(int **a, size_t len_a)
 {
 	ft_rotate(a, len_a);
 	ft_putstr_fd("ra\n", 1);
-	// ** DEBUG **
-	printf("\nstack a: \n");
-	ft_print_stack(*a, (size_t)len_a);
 }
 
 void	ft_rb(int **b, size_t len_b)
 {
 	ft_rotate(b, len_b);
 	ft_putstr_fd("rb\n", 1);
-	// ** DEBUG **
-	printf("\nstack b: \n");
-	ft_print_stack(*b, (size_t)len_b);
 }
 
 void	ft_rr(int **a, int **b, size_t len_a, size_t len_b)
@@ -52,9 +46,4 @@ void	ft_rr(int **a, int **b, size_t len_a, size_t len_b)
 	ft_rotate(a, len_a);
 	ft_rotate(b, len_b);
 	ft_putstr_fd("rr\n", 1);
-	// ** DEBUG **
-	printf("\nstack a: \n");
-	ft_print_stack(*a, (size_t)len_a);
-	printf("\nstack b: \n");
-	ft_print_stack(*b, (size_t)len_b);
 }

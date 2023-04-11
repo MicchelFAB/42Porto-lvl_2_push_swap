@@ -1,66 +1,11 @@
 #include "../push_swap.h"
 
-void	ft_push(int **a, int **b, int *len_a, int *len_b)
-{
-  static int total_alloc_size = 0;
-  
-  if (*len_a == 0)
-    ft_putstr_fd("Error - trying to push from empty stack\n", 2),
-	exit(0);
-    
-  if (total_alloc_size == 0) {
-    total_alloc_size = (*len_a + *len_b);
-    *a = ft_realloc(*a, sizeof(int) * total_alloc_size);
-    *b = ft_realloc(*b, sizeof(int) * total_alloc_size);
-  }
-  
-  if (*len_b == total_alloc_size) {
-    total_alloc_size *= 2;
-    *b = ft_realloc(*b, sizeof(int) * total_alloc_size);
-  }
-  
-  ft_memmove(*b + 1, *b, sizeof(int) * (*len_b));
-  (*b)[0] = (*a)[0];
-  *len_b += 1;
-  
-  if (*len_a > 0) {
-    ft_memmove(*a, *a + 1, sizeof(int) * (*len_a - 1));
-    *len_a -= 1; // decrement len_a after pushing to b
-  }
-}
-
-void	ft_pb(int **a, int **b, int *len_a, int *len_b)
-{
-	ft_push(a, b, len_a, len_b);
-	ft_putstr_fd("pb\n", 1);
-}
-void	ft_pa(int **a, int **b, int *len_a, int *len_b)
-{
-	ft_push(b, a, len_b, len_a);
-	ft_putstr_fd("pa\n", 1);
-}
-
-
-void	*ft_realloc(void *ptr, size_t size)
-{
-	void	*new_ptr;
-
-	if (ptr == NULL)
-		return (malloc(size));
-	if (!size)
-		return (ptr);
-	new_ptr = malloc(size);
-	ft_memcpy(new_ptr, ptr, size);
-	free(ptr);
-	return (new_ptr);
-}
-
 void	ft_sort5(int **a, int **b, int len_a, int len_b)
 {
-	int min_a;
-	int max_b;
-	int max_a;
-	int i;
+	int	min_a;
+	int	max_b;
+	int	max_a;
+	int	i;
 
 	i = len_a;
 	while (i > 3)

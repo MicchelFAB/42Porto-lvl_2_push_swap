@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/10 11:21:18 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/11 19:22:43 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int ft_check_int(const char *arg);
 void ft_print_stack(int *a, int len_a);
 void ft_sort3(int **stack, int len);
 void ft_sort5(int **stacka, int **stackb, int lena, int lenb);
-int ft_min(int *a, int len_a);
+int ft_min(int *a, int len_a, int pos);
 int ft_max(int *a, int len_a);
 
 #endif

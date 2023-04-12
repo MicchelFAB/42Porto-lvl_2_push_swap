@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../libft/libft.h"
 
 void ft_print_stack(int *a, int len_a)
 {
@@ -7,9 +8,9 @@ void ft_print_stack(int *a, int len_a)
 
     for (i = 0; i < len_a; i++)
     {
-        printf("%d ", a[i]);
+        ft_printf("%d ", a[i]);
     }
-    printf("\n");
+    ft_printf("\n");
 }
 
 int main(int argc, char **argv)
@@ -19,7 +20,9 @@ int main(int argc, char **argv)
     int len_a = argc - 1;
 
     a = (int *)malloc(sizeof(int) * len_a);
-    for (i = 1; i < argc; i++)
+    
+	i
+	for (i = 1; i < argc; i++)
     {
         a[i - 1] = atoi(argv[i]);
     }

@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:24:51 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/11 09:55:22 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:05:37 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	ft_check_double(int argc, char **argv)
 			num2 = ft_atoi(argv[j]);
 			if (num1 == num2)
 			{
-				printf("Duplicate found: %d at indices %d and %d\n", num1, i, j);
+				ft_printf("Duplicate found: %d at indices %d and %d\n"\
+				, num1, i, j);
 				return (1);
 			}
 			j++;

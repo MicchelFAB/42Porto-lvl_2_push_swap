@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/11 12:15:01 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/11 19:42:23 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,27 +80,39 @@ void	ft_print_stack(int *a, int len_a)
 	i = 0;
 	while (i < len_a)
 	{
-		printf("%d ", a[i]);
+		ft_printf("%d ", a[i]);
 		i++;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
 
-int ft_min(int *a, int len_a)
+int ft_min_pos(int *a, int len_a, int pos)
 {
-	int i;
-	int min;
-
+    int temp;
+    int i;
+	int j;
+	
 	i = 0;
-	min = a[0];
+	if (pos > len_a)
+		exit(0);
 	while (i < len_a)
 	{
-		if (a[i] < min)
-			min = a[i];
+		j = i + 1;
+		while (j < len_a)
+		{
+			if (a[i] > a[j])
+			{
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}
+			j++;
+		}
 		i++;
-	}
-	return (min);
+	}    
+    return (a[pos - 1]);
 }
+
 
 int ft_max(int *a, int len_a)
 {
@@ -116,4 +128,25 @@ int ft_max(int *a, int len_a)
 		i++;
 	}
 	return (max);
+}
+
+int main(int argc, char **argv)
+{
+	int *a;
+	int len_a;
+	int i;
+	int min;
+
+	i = 0;
+	len_a = argc - 1;
+	a = (int *)malloc(sizeof(int) * len_a);
+	while (i < len_a)
+	{
+		a[i] = ft_atol(argv[i + 1]);
+		i++;
+	}
+	min = ft_min(a, len_a, 4);
+	ft_printf("min: %d \n", min);
+	free(a);
+	return (0);
 }

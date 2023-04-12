@@ -2,51 +2,26 @@
 
 void	ft_sort5(int **a, int **b, int len_a, int len_b)
 {
-	int	min_a;
-	int	max_b;
-	int	max_a;
-	int	i;
+	int min_a;
+	int min_b;
+	
+	min_a = ft_min(*a, len_a, 1);
+	min_b = ft_min(*a, len_a, 2);
 
-	i = len_a;
-	while (i > 3)
+	while (len_a > 3)
 	{
-		min_a = ft_min(*a, len_a);
-		max_a = ft_max(*a, len_a);
-		if ((*a)[0] == max_a)
-			ft_pa(a, b, &len_a, &len_b);
-		else if ((*a)[len_a - 1] == max_a)
-			ft_pb(a, b, &len_a, &len_b);
-		else if ((*a)[0] == min_a)
-			ft_rra(a, len_a);
-		else
-			ft_ra(a, len_a);
-		i--;
-	}
-	ft_sort3(a, len_a);
-	if (len_b == 2 && (*b)[0] < (*b)[1])
-		ft_sb(b);
-	while (len_b > 0)
-	{
-		max_b = ft_max(*b, len_b);
-		if ((*b)[0] == max_b)
-			ft_pa(a, b, &len_a, &len_b);
-		else if ((*b)[len_b - 1] == max_b)
-			ft_rrb(b, len_b);
-		else if ((*b)[0] < max_b && (*b)[len_b - 1] < max_b)
+		if ((*a)[0] == min_a)
 		{
-			ft_pa(a, b, &len_a, &len_b);
-			if ((*a)[0] > (*a)[1])
-				ft_sa(a);
+			ft_pb(a, b, &len_a, &len_b);
+			if ((*a)[1] == min_b)
+				ft_pb(a, b, &len_a, &len_b);
+				ft_sort3(a, len_a);
+			else 
+				ft_sort3(a, len_a - 1);
 		}
-		else if ((*b)[0] < max_b)
-			ft_pa(a, b, &len_a, &len_b);
-		else
-			ft_rb(b, len_b);
+		len_a--;
 	}
 }
-
-#include "../push_swap.h"
-
 int main(int argc, char **argv) 
 {
 	int *stsha;
@@ -58,7 +33,7 @@ int main(int argc, char **argv)
 	
 	if (argc < 2)
 	{
-		printf("Error: No arguments enouth");
+		ft_printf("Error: No arguments enouth");
 		return (0);
 	}
 	stsha = (int*)malloc(sizeof(int) * (argc-1));
@@ -89,18 +64,18 @@ int main(int argc, char **argv)
 	// i = 0;
 	// while(i < argc-1)
 	// {
-	// 	printf("%d ", stsha[i]);
+	// 	ft_printf("%d ", stsha[i]);
 	// 	i++;
 	// }
-	printf("\nstack a: \n");
+	ft_printf("\nstack a: \n");
     for (int j = 0; j < len_a; j++)
-        printf("%02d ", stsha[j]);
+        ft_printf("%02d ", stsha[j]);
 
-    printf("\nstack b: \n");
+    ft_printf("\nstack b: \n");
     for (int j = 0; j < len_b; j++)
-        printf("%02d ", stshb[j]);
+        ft_printf("%02d ", stshb[j]);
 
-    printf("\n");
+    ft_printf("\n");
     free(stsha);
     free(stshb);
     return (0);

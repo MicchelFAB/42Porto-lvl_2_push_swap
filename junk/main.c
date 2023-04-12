@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	
 	if (argc < 2)
 	{
-		printf("Error: No arguments enouth");
+		ft_printf("Error: No arguments enouth");
 		return (0);
 	}
 	stsha = (int*)malloc(sizeof(int) * (argc-1));
@@ -42,18 +42,18 @@ int main(int argc, char **argv)
 	// i = 0;
 	// while(i < argc-1)
 	// {
-	// 	printf("%d ", stsha[i]);
+	// 	ft_printf("%d ", stsha[i]);
 	// 	i++;
 	// }
-	printf("\nstack a: \n");
+	ft_printf("\nstack a: \n");
     for (int j = 0; j < len_a; j++)
-        printf("%02d ", stsha[j]);
+        ft_printf("%02d ", stsha[j]);
 
-    printf("\nstack b: \n");
+    ft_printf("\nstack b: \n");
     for (int j = 0; j < len_b; j++)
-        printf("%02d ", stshb[j]);
+        ft_printf("%02d ", stshb[j]);
 
-    printf("\n");
+    ft_printf("\n");
     free(stsha);
     free(stshb);
     return (0);

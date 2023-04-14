@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "../inc/push_swap.h"
 
 int is_within_integer_limits(const char *arg) // check if the string value is within the limits of an integer
 {
@@ -21,28 +21,28 @@ int is_within_stack_limits(const int *stack, int len) // check if the stack is w
 	}
 	return (1);
 }
- 
-int main(int argc, char **argv)
-{
-    int i;
 
-    i = 1;
-    while (i < argc)
-    {
-        if (ft_check_int(argv[i]))
-        {
-            write(2, "Error\n", 6);
-            exit(1);
-        }
-        i++;
-    }
-	printf("stack a: \n");
-    for (int j = 1; j < argc; j++)
-        printf("%s ", argv[j]);
+// int main(int argc, char **argv)
+// {
+//     int i;
 
-    // continue with your Push_swap program
-    return (0);
-}
+//     i = 1;
+//     while (i < argc)
+//     {
+//         if (ft_check_int(argv[i]))
+//         {
+//             write(2, "Error\n", 6);
+//             exit(1);
+//         }
+//         i++;
+//     }
+// 	printf("stack a: \n");
+//     for (int j = 1; j < argc; j++)
+//         printf("%s ", argv[j]);
+
+//     // continue with your Push_swap program
+//     return (0);
+// }
 /* 
 #include <stdio.h>
 #include <limits.h>

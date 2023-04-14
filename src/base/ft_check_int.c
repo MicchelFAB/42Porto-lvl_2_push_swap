@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:48:30 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/14 11:43:14 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:51:13 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,17 @@ int	ft_check_int(const char *arg)
 		i++;
 	}
 	return (0);
+}
+
+int is_sorted(const int *stack, int len) // check if the stack is sorted
+{
+	int i = 0;
+
+	while (i < len - 1) // loop through the stack
+	{
+		if (stack[i] > stack[i + 1]) // check if the current value is greater than the next value
+			return (0);
+		i++;
+	}
+	return (1);
 }

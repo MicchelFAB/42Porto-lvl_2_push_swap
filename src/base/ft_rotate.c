@@ -6,42 +6,40 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:59:49 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/14 11:43:24 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:39:56 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	ft_rotate(int **stack, size_t len)
+void ft_rotate(int *stack, int len)
 {
-	int		*ptr;
-	size_t	i;
+    int first;
+	int i;
 
-	i = 1;
-	ptr = malloc(sizeof(int) * len);
-	while (i < len)
+	first = stack[0];
+	i = 0;
+	while (i < len - 1)
 	{
-		ptr[i - 1] = (*stack)[i];
+		stack[i] = stack[i + 1];
 		i++;
 	}
-	ptr[len - 1] = (*stack)[0];
-	free(*stack);
-	*stack = ptr;
+	stack[len - 1] = first;
 }
 
-void	ft_ra(int **a, size_t len_a)
+void	ft_ra(int *a, int len_a)
 {
 	ft_rotate(a, len_a);
 	ft_putstr_fd("ra\n", 1);
 }
 
-void	ft_rb(int **b, size_t len_b)
+void	ft_rb(int *b, int len_b)
 {
 	ft_rotate(b, len_b);
 	ft_putstr_fd("rb\n", 1);
 }
 
-void	ft_rr(int **a, int **b, size_t len_a, size_t len_b)
+void	ft_rr(int *a, int *b, int len_a, int len_b)
 {
 	ft_rotate(a, len_a);
 	ft_rotate(b, len_b);

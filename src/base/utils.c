@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/14 11:43:55 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:35:48 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,38 +33,12 @@ long long int	ft_atol(const char *nptr)
 	return (res * sinal);
 }
 
-/* int *ft_realloc(int *a, int len)
-{
-    int *alloc;
-	int i;
-	
-    alloc = (int *)malloc(sizeof(int) * len);
-    if (!alloc)
-	{
-		exit(1);
-	}
-	i = 0;
-	while (i < len)
-	{
-		if (i < len - 1)
-			alloc[i] = a[i];
-		else
-			alloc[i] = 0;
-		i++;
-	}
-    alloc = ft_memcpy(alloc, a, sizeof(int) * len);
-	free(a);
-    return (alloc);
-}
-
- */
-
 void	*ft_realloc(void *ptr, size_t size)
 {
 	void	*new_ptr;
 
-	if (ptr == NULL)
-		return (malloc(size));
+	// if (ptr == NULL)
+	// 	return (malloc(size));
 	if (!size)
 		return (ptr);
 	new_ptr = malloc(size);
@@ -85,6 +59,13 @@ void	ft_print_stack(int *a, int len_a)
 	}
 	ft_printf("\n");
 }
+
+void ft_print_stack_all(int *a, int *b, int len_a, int len_b)
+{
+	ft_print_stack(a, len_a);
+	ft_print_stack(b, len_b);
+}
+
 
 int ft_min_if(const int *a, int len_a, int pos)
 {

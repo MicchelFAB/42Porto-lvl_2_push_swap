@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/14 19:25:46 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:44:55 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void			ft_sb(int *b);
 void			ft_ss(int *a, int *b);
 
 // function that execute push of the stack
-void ft_push(int *x, int *y, int *len_x, int *len_y); 
-void			ft_pa(int *b, int *a, int len_b, int len_a);
-void			ft_pb(int *a, int *b, int len_a, int len_b);
+void 			ft_push(int *x, int *y, int *len_x, int *len_y); 
+void			ft_pa(int *b, int *a, int *len_b, int *len_a);
+void			ft_pb(int *a, int *b, int *len_a, int *len_b);
 
 // function that interact with the stack
 void			*ft_realloc(void *ptr, size_t size);
@@ -55,12 +55,12 @@ int				is_valid_argument(const char *arg);
 int				ft_check_int(const char *arg);
 void			ft_print_stack(int *a, int len_a);
 void			ft_sort3(int *stack, int len);
-void			ft_sort5(int **stacka, int **stackb, int *lena, int *lenb);
+void			ft_sort5(int *stacka, int *stackb, int lena, int lenb);
 int				ft_min_if(const int *a, int len_a, int pos);
 int				ft_max(int *a, int len_a);
 
 int				is_sorted(const int *stack, int len);
 void 			ft_print_stack_all(int *a, int *b, int len_a, int len_b);
-
+void ft_min1(int *a, int *b, int len_a, int len_b);
 
 #endif

@@ -1,4 +1,4 @@
-# base/ft_sort3.c
+# 
 # 
 NAME 		:= dummy.a
 
@@ -13,7 +13,7 @@ SRCS 		:=		base/ft_check_double.c base/ft_check_int.c base/ft_push.c\
 				libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstlast.c libft/ft_lstmap.c \
 				libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_memchr.c libft/ft_memcmp.c \
 				libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_printf.c \
-				libft/ft_putchar_fd.c libft/ft_putcharpf.c libft/ft_putendl_fd.c \
+				libft/ft_putchar_fd.c libft/ft_putcharpf.c libft/ft_putendl_fd.c base/ft_sort3.c\
 				libft/ft_puthexpf.c libft/ft_putnbr_fd.c libft/ft_putnbrpf.c libft/ft_putptrpf.c \
 				libft/ft_putstr_fd.c libft/ft_putstrpf.c libft/ft_putunbrpf.c libft/ft_split.c \
 				libft/ft_strchr.c libft/ft_strdup.c libft/ft_strjoin.c libft/ft_strlcat.c \

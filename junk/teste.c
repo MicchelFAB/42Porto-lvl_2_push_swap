@@ -1,72 +1,59 @@
 #include "../inc/push_swap.h"
 
-void	ft_sort5(int **a, int **b, int *len_a, int *len_b)
+void	ft_sort5(int *a, int *b, int len_a, int len_b)
+
 {
-	ft_pb(a, b, len_a, len_b);
-	// ft_print_stack_all(*a, *b, *len_a, *len_b);
-	// ft_pb(a, b, len_a, len_b);
-	// ft_print_stack_all(*a, *b, *len_a, *len_b);
-	// ft_pb(a, b, len_a, len_b);
-	// ft_ra(a, *len_a);
-	// ft_print_stack_all(*a, *b, *len_a, *len_b);
-	// ft_pa(a, b, len_a, len_b);
-	// ft_print_stack_all(*a, *b, *len_a, *len_b);
-	// ft_pa(a, b, len_a, len_b);
-	// ft_print_stack_all(*a, *b, *len_a, *len_b);
-	
-}
-/* {
 	int	min_x;
 	int	min_z;
 	int	i;
 
-	i = *len_a;
+	i = len_a;
 	while (i > 3)
 	{
-		min_x = ft_min_if(*a, *len_a, 1);
-		min_z = ft_min_if(*a, *len_a, 2);
-		if (is_sorted(*a, *len_a))
+		min_x = ft_min_if(a, len_a, 1);
+		min_z = ft_min_if(a, len_a, 2);
+		if (is_sorted(a, len_a))
 			break ;
-		else if ((*a)[0] == min_x)
+		else if (a[0] == min_x)
 		{
-			ft_pb(a, b, len_a, len_b);
-			if ((*a)[0] > (*a)[1] && (*a)[1] == min_z)
+			ft_pb(a, b, &len_a, &len_b);
+			if (a[0] > a[1] && a[1] == min_z)
 				ft_sa(a);
 		}
-		else if ((*a)[4] == min_x)
+		else if (a[4] == min_x)
 		{
-			ft_rra(a, *len_a);
+			ft_rra(a, len_a);
 		}
-		// else if ((*a)[0] == min_z)
+		// else if (a[0] == min_z)
 		// {
-			// ft_pb(a, b, len_a, len_b);
+			// ft_pb(a, b, &len_a, &len_b);
 		// }
 		i--;
-		if (is_sorted(*a, *len_a))
-				ft_printf("%d\n", (*a)[3]);
+		if (is_sorted(a, len_a))
+			ft_print_stack_all(a, b, len_a, len_b);
 	}
 	ft_sort3(a, len_a);
-	if (*len_b == 2 && (*b)[0] < (*b)[1])
+	if (len_b == 2 && b[0] < b[1])
 		ft_sb(b);
-	while (*len_b > 0)
+	while (len_b > 0)
 	{
-		min_z = ft_max(*b, *len_b);
-		if ((*b)[0] == min_z)
-			ft_pa(a, b, len_a, len_b);
-		else if ((*b)[*len_b - 1] == min_z)
-			ft_rrb(b, *len_b);
-		else if ((*b)[0] < min_z && (*b)[*len_b - 1] < min_z)
+		min_z = ft_max(b, len_b);
+		if (b[0] == min_z)
+			ft_pa(a, b, &len_a, &len_b);
+		else if (b[len_b - 1] == min_z)
+			ft_rrb(b, len_b);
+		else if (b[0] < min_z && b[len_b - 1] < min_z)
 		{
-			ft_pa(a, b, len_a, len_b);
-			if ((*a)[0] > (*a)[1])
+			ft_pa(a, b, &len_a, &len_b);
+			if (a[0] > a[1])
 				ft_sa(a);
 		}
-		else if ((*b)[0] < min_z)
-			ft_pa(a, b, len_a, len_b);
+		else if (b[0] < min_z)
+			ft_pa(a, b, &len_a, &len_b);
 		else
-			ft_rb(b, *len_b);
+			ft_rb(b, len_b);
 	}
-} */
+}
 
 int main(int argc, char **argv) 
 {
@@ -94,7 +81,7 @@ int main(int argc, char **argv)
 	i = 0;
 
 	// ft_sort3(&stsha, len_a);
-	ft_sort5(&stsha, &stshb, &len_a, &len_b);
+	ft_sort5(stsha, stshb, len_a, len_b);
 	
 	// ft_pb(&stsha, &stshb, &len_a, &len_b);
 	// ft_pb(&stsha, &stshb, &len_a, &len_b);

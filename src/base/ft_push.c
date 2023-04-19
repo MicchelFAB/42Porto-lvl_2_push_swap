@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:54:53 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/17 13:40:17 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:55:57 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ void	ft_push(int *x, int *y, int *len_x, int *len_y)
 
 void	ft_pb(int *a, int *b, int *len_a, int *len_b)
 {
-{
 	ft_push(a, b, len_a, len_b);
-}
 	ft_putstr_fd("pb\n", 1);
 }
 

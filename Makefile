@@ -3,7 +3,7 @@
 NAME 		:= dummy.a
 
 SRC_DIR 	:= src
-SRCS 		:=		base/ft_check_double.c base/ft_check_int.c base/ft_push.c\
+SRCS 		:=		base/ft_check_double.c base/ft_check_is_int.c base/ft_push.c\
 				base/ft_reverse_rotate.c base/ft_rotate.c base/ft_swap.c \
 				 base/utils.c \
 					libft/ft_arrlen.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \

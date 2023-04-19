@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_double.c                                  :+:      :+:    :+:   */
+/*   ft_check_limits.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 12:24:51 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/19 16:34:02 by mamaral-         ###   ########.fr       */
+/*   Created: 2023/04/19 10:09:45 by mamaral-          #+#    #+#             */
+/*   Updated: 2023/04/19 12:47:37 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	ft_check_double(const int argc, char **argv)
+int ft_integer_limits(const char *arg) 
 {
-	int	i;
-	int	j;
-	int	num1;
-	int	num2;
+	long long num = ft_atol(arg); 
 
-	i = 1;
-	while (i < argc)
-	{
-		num1 = ft_atoi(argv[i]);
-		j = i + 1;
-		while (j < argc)
-		{
-			num2 = ft_atoi(argv[j]);
-			if (num1 == num2)
-			{
-				ft_exit_error();
-				return (0);
-			}
-			j++;
-		}
-		i++;
-	}
+	if (num > 2147483647 || num < -2147483648)
+		ft_exit_error();
+		return (0);
 	return (1);
+}
+
+int ft_check_stack(const int *stack, int len)
+{
+    int i;
+    
+	i = 0;
+    while (i < len)
+    {
+        if (stack[i] > 2147483647 || stack[i] < -2147483648)
+			ft_exit_error();
+            return (0);
+        i++;
+    }
+    return (1);
 }

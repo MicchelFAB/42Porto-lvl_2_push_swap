@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/14 14:35:48 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:35:32 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,6 @@ long long int	ft_atol(const char *nptr)
 		nptr++;
 	}
 	return (res * sinal);
-}
-
-void	*ft_realloc(void *ptr, size_t size)
-{
-	void	*new_ptr;
-
-	// if (ptr == NULL)
-	// 	return (malloc(size));
-	if (!size)
-		return (ptr);
-	new_ptr = malloc(size);
-	ft_memcpy(new_ptr, ptr, size);
-	free(ptr);
-	return (new_ptr);
 }
 
 void	ft_print_stack(int *a, int len_a)
@@ -106,8 +92,6 @@ int ft_min_if(const int *a, int len_a, int pos)
     return result;
 }
 
-
-
 int ft_max(int *a, int len_a)
 {
 	int i;
@@ -123,24 +107,9 @@ int ft_max(int *a, int len_a)
 	}
 	return (max);
 }
-/* 
-int main(int argc, char **argv)
-{
-	int *a;
-	int len_a;
-	int i;
-	int min;
 
-	i = 0;
-	len_a = argc - 1;
-	a = (int *)malloc(sizeof(int) * len_a);
-	while (i < len_a)
-	{
-		a[i] = ft_atol(argv[i + 1]);
-		i++;
-	}
-	min = ft_min(a, len_a, 4);
-	ft_printf("min: %d \n", min);
-	free(a);
-	return (0);
-} */
+void	ft_exit_error(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
+}

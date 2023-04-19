@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/17 15:44:55 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:38:31 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,22 @@ void			*ft_realloc(void *ptr, size_t size);
 long long int	ft_atol(const char *nptr);
 
 // function that check the stack for errors
-int				ft_check_stack(int *a, size_t len);
-int				ft_check_double(int argc, char **argv);
-int				ft_check_sort(int *a, size_t len);
+int				ft_check_stack(const int *a, size_t len);
+int				ft_check_double(const int argc, char **argv);
+int				ft_check_sort(const int *a, size_t len);
+int 			ft_integer_limits(const char *arg);
+int				ft_is_sorted(const int *stack, int len);
 int				is_valid_argument(const char *arg);
-int				ft_check_int(const char *arg);
-void			ft_print_stack(int *a, int len_a);
+int				ft_check_is_int(const char *arg);
 void			ft_sort3(int *stack, int len);
 void			ft_sort5(int *stacka, int *stackb, int lena, int lenb);
 int				ft_min_if(const int *a, int len_a, int pos);
 int				ft_max(int *a, int len_a);
 
-int				is_sorted(const int *stack, int len);
+// function that helps debbuging
+void			ft_print_stack(int *a, int len_a);
 void 			ft_print_stack_all(int *a, int *b, int len_a, int len_b);
-void ft_min1(int *a, int *b, int len_a, int len_b);
+void 			ft_min1(int *a, int *b, int len_a, int len_b);
+void			ft_exit_error(void);
 
 #endif

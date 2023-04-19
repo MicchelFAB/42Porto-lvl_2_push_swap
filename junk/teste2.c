@@ -1,5 +1,21 @@
 #include "../inc/push_swap.h"
 
+int	find_limit(const int len)
+{
+	int	limit;
+	int size;
+
+	limit = 0;
+	size = len;
+	while ((size / 2) != 0)
+	{
+		limit++;
+		size = size / 2;
+	}
+	return (limit);
+}
+	
+
 void ft_min1(int *a, int *b, int len_a, int len_b)
 {
 	int	min_x;
@@ -31,7 +47,7 @@ void ft_min1(int *a, int *b, int len_a, int len_b)
 				ft_ra(a, len_a);
 				// ft_print_stack_all(a, b, len_a, len_b);
 			}
-			if (is_sorted(a, len_a))
+			if (ft_is_sorted(a, len_a))
 			{
 				ft_print_stack_all(a, b, len_a, len_b);
 			}
@@ -45,28 +61,37 @@ void ft_min1(int *a, int *b, int len_a, int len_b)
 	}
 }
 
-// function that put the stack in order and store on the stack index
-void	ft_find_order (int *x, int len_x)
+void	long_push_swap(int *a, int *b, int len_a, int len_b)
 {
 	int	i;
-	int	j;
-	int	temp;
+	int j;
+	int limit;
+	int min;
 
+	limit = find_limit(len_a);
+	min = ft_min_if(a, len_a, 1);
 	i = 0;
-	while (i < len_x)
+	j = 1;
+	while (limit >= 0)
 	{
-		j = i + 1;
-		while (j < len_x)
+		while (i < len_a)
 		{
-			if (x[i] > x[j])
+			if (a[limit] == min)
 			{
-				temp = x[i];
-				x[i] = x[j];
-				x[j] = temp;
+				ft_pb(a, b, &len_a, &len_b);
+				min = ft_min_if(a, len_a, j);
+				j++;
 			}
-			j++;
+			else if (a[limit] < limit + min)
+				ft_ra(a, len_a);
+			else if (a[limit] < limit + min)
+				ft_rra(a, len_a);
+			i++;
 		}
-		i++;
+		while (len_b)
+			ft_pa(a, b, &len_a, &len_b);
+		limit--;
+		i = 0;
 	}
 }
 
@@ -88,9 +113,18 @@ int main(int argc, char **argv)
 		stsha[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	ft_find_order(stsha, len_a);
-	// ft_min1(stsha, stshb, len_a, len_b);
-	ft_print_stack_all(stsha, stshb, len_a, len_b);
+	
+	long_push_swap(stsha, stshb, len_a, len_b);
+	printf("\nstack a: \n");
+    for (int j = 0; j < len_a; j++)
+        printf("%d ", stsha[j]);
+
+    printf("\nstack b: \n");
+    for (int j = 0; j < len_b; j++)
+        printf("%d ", stshb[j]);
+
+    printf("\n");
+
 	free (stsha);
 	free (stshb);
 	return (0);

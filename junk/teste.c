@@ -12,7 +12,7 @@ void	ft_sort5(int *a, int *b, int len_a, int len_b)
 	{
 		min_x = ft_min_if(a, len_a, 1);
 		min_z = ft_min_if(a, len_a, 2);
-		if (is_sorted(a, len_a))
+		if (ft_is_sorted(a, len_a))
 			break ;
 		else if (a[0] == min_x)
 		{
@@ -29,7 +29,7 @@ void	ft_sort5(int *a, int *b, int len_a, int len_b)
 			// ft_pb(a, b, &len_a, &len_b);
 		// }
 		i--;
-		if (is_sorted(a, len_a))
+		if (ft_is_sorted(a, len_a))
 			ft_print_stack_all(a, b, len_a, len_b);
 	}
 	ft_sort3(a, len_a);

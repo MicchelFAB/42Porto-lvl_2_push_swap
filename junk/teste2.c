@@ -74,7 +74,7 @@ void	long_push_swap(int *a, int *b, int len_a, int len_b)
 	j = 1;
 	while (limit >= 0)
 	{
-		while (i < len_a)
+		while (!ft_is_sorted(a, len_a))
 		{
 			if (a[limit] == min)
 			{
@@ -82,10 +82,10 @@ void	long_push_swap(int *a, int *b, int len_a, int len_b)
 				min = ft_min_if(a, len_a, j);
 				j++;
 			}
-			else if (a[limit] < limit + min)
+			else
 				ft_ra(a, len_a);
-			else if (a[limit] < limit + min)
-				ft_rra(a, len_a);
+			// else if (a[limit] > limit)
+			// 	ft_rra(a, len_a);
 			i++;
 		}
 		while (len_b)

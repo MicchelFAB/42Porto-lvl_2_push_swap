@@ -5,32 +5,58 @@ void	ft_sort5(int *a, int *b, int len_a, int len_b)
 {
 	int	min_x;
 	int	min_z;
+	int posx;
+	int posz;
 	int	i;
 
 	i = len_a;
-	while (i > 3)
+	while (len_a > 3)
 	{
 		min_x = ft_min_if(a, len_a, 1);
 		min_z = ft_min_if(a, len_a, 2);
+		posx = ft_find_min_pos_if(a, len_a, 1);
+		posz = ft_find_min_pos_if(a, len_a, 2);
 		if (ft_is_sorted(a, len_a))
 			break ;
-		else if (a[0] == min_x)
+		while (a[0] != min_x)
 		{
-			ft_pb(a, b, &len_a, &len_b);
-			if (a[0] > a[1] && a[1] == min_z)
-				ft_sa(a);
+			if (posx > posz && len_a > 4)
+			{
+				while (a[0] != min_z)
+				{
+					if (posz > (len_a/2 && len_b < 1))
+						{ft_rra(a, len_a);
+						ft_print_stack(a, b, len_a, len_b);
+						}
+					else if (posz < (len_a/2 ))
+						{ft_ra(a, len_a);
+						ft_print_stack(a, b, len_a, len_b);
+						}
+				}
+				if (a[0] > a[1] && a[0] == min_z && a[1] == min_x)
+				{
+					ft_sa(a);
+					ft_print_stack(a, b, len_a, len_b);
+				}
+				else 
+				{
+				ft_pb(a, b, &len_a, &len_b);
+				ft_print_stack(a, b, len_a, len_b);
+				}
+			}	
+			else if (posx < (len_a/2 && len_b < 1))
+				{ft_rra(a, len_a);
+				ft_print_stack(a, b, len_a, len_b);
+				}
+			else
+				{ft_ra(a, len_a);
+				ft_print_stack(a, b, len_a, len_b);
+				}
 		}
-		else if (a[4] == min_x)
-		{
-			ft_rra(a, len_a);
-		}
-		// else if (a[0] == min_z)
-		// {
-			// ft_pb(a, b, &len_a, &len_b);
-		// }
-		i--;
-		if (ft_is_sorted(a, len_a))
-			ft_print_stack_all(a, b, len_a, len_b);
+		if (a[0] == min_x)
+			{ft_pb(a, b, &len_a, &len_b);
+			ft_print_stack(a, b, len_a, len_b);
+			}
 	}
 	ft_sort3(a, len_a);
 	if (len_b == 2 && b[0] < b[1])
@@ -82,7 +108,8 @@ int main(int argc, char **argv)
 
 	// ft_sort3(&stsha, len_a);
 	ft_sort5(stsha, stshb, len_a, len_b);
-	
+	// printf("pos 1: %d\n pos 2: %d\n", ft_find_min_pos_if(stsha, len_a, 1), ft_find_min_pos_if(stsha, len_a, 2));
+
 	// ft_pb(&stsha, &stshb, &len_a, &len_b);
 	// ft_pb(&stsha, &stshb, &len_a, &len_b);
 	// ft_pa(&stsha, &stshb, &len_a, &len_b);

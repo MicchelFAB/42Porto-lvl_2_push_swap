@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/19 16:38:31 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:25:52 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+#include <limits.h>
 
 // function that execute rotation of the stack
 void			ft_rotate(int *stack, int len);
@@ -61,9 +62,9 @@ int				ft_min_if(const int *a, int len_a, int pos);
 int				ft_max(int *a, int len_a);
 
 // function that helps debbuging
-void			ft_print_stack(int *a, int len_a);
-void 			ft_print_stack_all(int *a, int *b, int len_a, int len_b);
+void			ft_print_stack(int *a, int *b, int len_a, int len_b);
 void 			ft_min1(int *a, int *b, int len_a, int len_b);
 void			ft_exit_error(void);
+int 			ft_find_min_pos_if(const int *x, int len_x, int n);
 
 #endif

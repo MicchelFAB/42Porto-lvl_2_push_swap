@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:47:33 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/19 16:35:32 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:36:17 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,6 @@ long long int	ft_atol(const char *nptr)
 	}
 	return (res * sinal);
 }
-
-void	ft_print_stack(int *a, int len_a)
-{
-	int	i;
-
-	i = 0;
-	while (i < len_a)
-	{
-		ft_printf("%d ", a[i]);
-		i++;
-	}
-	ft_printf("\n");
-}
-
-void ft_print_stack_all(int *a, int *b, int len_a, int len_b)
-{
-	ft_print_stack(a, len_a);
-	ft_print_stack(b, len_b);
-}
-
 
 int ft_min_if(const int *a, int len_a, int pos)
 {
@@ -112,4 +92,53 @@ void	ft_exit_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
+}
+
+int ft_find_min_pos_if(const int *x, int len_x, int n)
+{
+    int i;
+    int min_pos;
+    int min;
+
+	min_pos = 0;
+	min = ft_min_if(x, len_x, n);
+	i = 0;
+    if (n < 0 || n > len_x) 
+	{
+        return -1;
+    }
+    
+    while (i < len_x)
+    {
+        if (x[i] == min)
+        {
+            min = x[i];
+            min_pos = i;
+        }
+		i++;
+    }
+    return (min_pos);
+}
+
+void	ft_print_stack(int *x, int *y, int lenx, int leny)
+{
+    int i;
+
+    i = 0;
+    while (i < lenx || i < leny)
+    {
+        if (i < lenx)
+            ft_printf("%d ", x[i]);
+        else
+            ft_printf("  ");
+
+        if (i < leny)
+            ft_printf(" %d", y[i]);
+        else
+            ft_printf("  ");
+
+        ft_printf("\n");
+        i++;
+    }
+	ft_printf("_  _\na  b\n");
 }

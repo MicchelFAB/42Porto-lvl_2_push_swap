@@ -53,7 +53,6 @@ int ft_is_sorted(const int *stack, int len) // check if the stack is sorted
 	{
 		if (stack[i] > stack[i + 1]) // check if the current value is greater than the next value
 		{
-			ft_exit_error();
 			return (0);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/24 15:25:52 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:22:55 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,17 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-#include <limits.h>
+# include <limits.h>
 
-// function that execute rotation of the stack
+typedef struct s_stack
+{
+	int	*stack;
+	int	len;	
+}t_stack;
+
+typedef struct s_data
+{
+	// function that execute rotation of the stack
 void			ft_rotate(int *stack, int len);
 void			ft_ra(int *a, int len_a);
 void			ft_rb(int *b, int len_b);
@@ -34,13 +42,12 @@ void			ft_rrb(int *b, int len_b);
 void			ft_rrr(int *a, int *b, int len_a, int len_b);
 
 // function that execute swap of the stack
-void			ft_swap(int *stack);
 void			ft_sa(int *a);
 void			ft_sb(int *b);
 void			ft_ss(int *a, int *b);
 
 // function that execute push of the stack
-void 			ft_push(int *x, int *y, int *len_x, int *len_y); 
+void			ft_push(int *x, int *y, int *len_x, int *len_y);
 void			ft_pa(int *b, int *a, int *len_b, int *len_a);
 void			ft_pb(int *a, int *b, int *len_a, int *len_b);
 
@@ -52,19 +59,19 @@ long long int	ft_atol(const char *nptr);
 int				ft_check_stack(const int *a, size_t len);
 int				ft_check_double(const int argc, char **argv);
 int				ft_check_sort(const int *a, size_t len);
-int 			ft_integer_limits(const char *arg);
+int				ft_integer_limits(const char *arg);
 int				ft_is_sorted(const int *stack, int len);
 int				is_valid_argument(const char *arg);
 int				ft_check_is_int(const char *arg);
 void			ft_sort3(int *stack, int len);
-void			ft_sort5(int *stacka, int *stackb, int lena, int lenb);
+void			*ft_sort5(int *stacka, int *stackb, int *lena, int *lenb);
 int				ft_min_if(const int *a, int len_a, int pos);
 int				ft_max(int *a, int len_a);
 
 // function that helps debbuging
 void			ft_print_stack(int *a, int *b, int len_a, int len_b);
-void 			ft_min1(int *a, int *b, int len_a, int len_b);
+void			ft_min1(int *a, int *b, int len_a, int len_b);
 void			ft_exit_error(void);
-int 			ft_find_min_pos_if(const int *x, int len_x, int n);
+int				ft_find_min_pos_if(const int *x, int len_x, int n);
 
 #endif

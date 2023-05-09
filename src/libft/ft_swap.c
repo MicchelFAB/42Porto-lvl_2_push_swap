@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arrlen.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 10:44:44 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/08 11:09:55 by mamaral-         ###   ########.fr       */
+/*   Created: 2022/07/25 14:20:53 by mamaral-          #+#    #+#             */
+/*   Updated: 2023/05/08 10:34:28 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-int	ft_arrlen(int *a)
+void	ft_swap(int *a, int *b)
 {
-	int	len;
+	int	c;
 
-	len = 0;
-	while (a[len])
-		len++;
-	return (len);
+	c = *a;
+	*a = *b;
+	*b = c;
 }

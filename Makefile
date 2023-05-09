@@ -5,7 +5,7 @@ NAME 		:= dummy.a
 SRC_DIR 	:= src
 SRCS 		:=		base/ft_check_double.c base/ft_check_is_int.c base/ft_push.c\
 				base/ft_reverse_rotate.c base/ft_rotate.c base/ft_swap.c \
-				 base/utils.c \
+				 base/utils.c base/ft_min.c \
 					libft/ft_arrlen.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \
 				libft/ft_intlen.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
 				libft/ft_isdigit.c libft/ft_isprint.c libft/ft_isspace.c libft/ft_itoa.c \
@@ -20,7 +20,7 @@ SRCS 		:=		base/ft_check_double.c base/ft_check_is_int.c base/ft_push.c\
 				libft/ft_strlcpy.c libft/ft_strlen.c libft/ft_strmapi.c libft/ft_strncmp.c \
 				libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strtrim.c libft/ft_substr.c \
 				libft/ft_tolower.c libft/ft_toupper.c libft/get_next_line.c \
-				libft/get_next_line_utils.c
+				libft/get_next_line_utils.c libft/ft_swap.c
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 

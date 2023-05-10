@@ -1,0 +1,47 @@
+=================================================================
+==9589==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000003c at pc 0x55fb66c81977 bp 0x7ffeb4a9cb60 sp 0x7ffeb4a9cb50
+WRITE of size 4 at 0x60300000003c thread T0
+    #0 0x55fb66c81976 in main junk/teste4.c:68
+    #1 0x7f9cf0e23a8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #2 0x7f9cf0e23b48 in __libc_start_main_impl ../csu/libc-start.c:360
+    #3 0x55fb66c81224 in _start (/home/michel-batista/Documents/42Porto-lvl_2_push_swap/a.out+0x1224) (BuildId: fe2ce1692cddf61828933cf74c658f1c8b015c87)
+
+0x60300000003c is located 4 bytes before 24-byte region [0x603000000040,0x603000000058)
+allocated by thread T0 here:
+    #0 0x7f9cf12decaf in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69
+    #1 0x55fb66c81851 in main junk/teste4.c:64
+    #2 0x7f9cf0e23a8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow junk/teste4.c:68 in main
+Shadow bytes around the buggy address:
+  0x602ffffffd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x602ffffffe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x602ffffffe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x602fffffff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x602fffffff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x603000000000: fa fa 00 00 00 fa fa[fa]00 00 00 fa fa fa 00 00
+  0x603000000080: 00 fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x603000000100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x603000000180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x603000000200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x603000000280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==9589==ABORTING

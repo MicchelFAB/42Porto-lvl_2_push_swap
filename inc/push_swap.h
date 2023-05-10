@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/10 08:06:15 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:11:54 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_stack
 
 typedef struct s_stash
 {
-	t_stack	*a;
-	t_stack *b;
+	t_stack	a;
+	t_stack b;
 }t_stash;
 	// function that execute rotation of the stack
 /* void			ft_rotate(t_stash stash);
@@ -50,10 +50,10 @@ void			ft_sb(t_stash stash);
 void			ft_ss(t_stash stash);
  */
 // function that execute push of the stack
-void			ft_push(t_stack x, t_stack y);
+/* void			ft_push(t_stack x, t_stack y);
 void			ft_pa(t_stash stash);
 void			ft_pb(t_stash stash);
-
+ */
 // function that interact with the stack
 void			*ft_realloc(void *ptr, size_t size);
 long long int	ft_atol(const char *nptr);

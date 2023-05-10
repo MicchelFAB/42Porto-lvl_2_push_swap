@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:11:17 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/10 08:08:43 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:12:28 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-	t_stash	*stash;
+	t_stash	stash;
 	int i;
 	
 	ft_memset(&stash, 0, sizeof(stash));

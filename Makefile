@@ -1,12 +1,10 @@
 # 
-#base/ft_check_double.c base/ft_check_is_int.c \
-				base/ft_reverse_rotate.c base/ft_rotate.c base/ft_swap.c \
-				 base/ft_min.c base/ft_sort3.c
+#base/ft_check_double.c base/ft_check_is_int.c base/ft_push.c base/ft_reverse_rotate.c base/ft_rotate.c base/ft_swap.c base/ft_min.c base/ft_sort3.c
 # 
 NAME 		:= dummy.a
 
 SRC_DIR 	:= src
-SRCS 		:=		base/ft_push.c base/utils.c \
+SRCS 		:=		base/utils.c \
 					libft/ft_arrlen.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \
 				libft/ft_intlen.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
 				libft/ft_isdigit.c libft/ft_isprint.c libft/ft_isspace.c libft/ft_itoa.c \

@@ -6,49 +6,49 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:54:53 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/24 11:56:57 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:55:24 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	ft_push(int *x, int *y, int *len_x, int *len_y)
+void	ft_push(t_stack *x, t_stack *y)
 {
 	int i;
 
 	i = 0;
-	if (*len_x == 0)
+	if (x.len == 0)
 	{
 		return;
 	}
-	if(*len_y > 0)
+	if(y.len > 0)
 	{
-		i = *len_y;
+		i = y.len;
 		while(i > 0)
 		{
-			y[i] = y[i - 1];
+			y.stack[i] = y.stack[i - 1];
 			i--;
 		}
 	}
-	y[0] = x[0];
-	(*len_y)++;
+	y.stack[0] = x.stack[0];
+	(&y.len)++;
 	i = 0;
-	while (i < (*len_x) - 1)
+	while (i < (x.len) - 1)
 	{
-		x[i] = x[i + 1];
+		x.stack[i] = x.stack[i + 1];
 		i++;
 	}
-	(*len_x)--;
+	(&x.len)--;
 }
 
-void	ft_pb(int *a, int *b, int *len_a, int *len_b)
+void	ft_pb(t_stash t_stash)
 {
-	ft_push(a, b, len_a, len_b);
+	ft_push(t_stash.a, t_stash.b);
 	ft_putstr_fd("pb\n", 1);
 }
 
-void	ft_pa(int *a, int *b, int *len_a, int *len_b)
+void	ft_pa(t_stash t_stash)
 {
-	ft_push(b, a, len_b, len_a);
+	ft_push(&t_stash.b, &t_stash.a);
 	ft_putstr_fd("pa\n", 1);
 }

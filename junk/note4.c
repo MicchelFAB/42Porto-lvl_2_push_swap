@@ -1,8 +1,8 @@
-#include "../push_swap.h"
+#include "../inc/push_swap.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int ft_pa(int **a, int **b, int *len_a, int *len_b)
+int	ft_pa(int **a, int **b, int *len_a, int *len_b)
 {
 	if (*len_a == 0)
 		return (0);
@@ -17,7 +17,7 @@ int ft_pa(int **a, int **b, int *len_a, int *len_b)
 		*len_b += 1;
 	}
 	else
-	{ 
+	{
 		*b = ft_realloc(*b, *len_b);
 		ft_memmove(*b + 1, *b, sizeof(int) * (*len_b));
 		(*b)[0] = (*a)[0];
@@ -29,11 +29,11 @@ int ft_pa(int **a, int **b, int *len_a, int *len_b)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int *a;
-	int *b;
-	int i;
+	int	*a;
+	int	*b;
+	int		i;
 
 	if (argc < 3)
 		return (1);
@@ -57,17 +57,17 @@ int main(int argc, char **argv)
 	ft_pa(&a, &b, &len_a, &len_b);
 	ft_pa(&a, &b, &len_a, &len_b);
 	ft_pa(&a, &b, &len_a, &len_b);
-	
-    printf("stack a: ");
-    for (int j = 0; j < len_a; j++)
-        printf("%d ", a[j]);
 
-    printf("\nstack b: ");
-    for (int j = 0; j < len_b; j++)
-        printf("%d ", b[j]);
+	printf("stack a: ");
+	for (int j = 0; j < len_a; j++)
+		printf("%d ", a[j]);
 
-    printf("\n");
-    free(a);
-    free(b);
-    return (0);
+	printf("\nstack b: ");
+	for (int j = 0; j < len_b; j++)
+		printf("%d ", b[j]);
+
+	printf("\n");
+	free(a);
+	free(b);
+	return (0);
 }

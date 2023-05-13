@@ -6,77 +6,62 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:57 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/08 11:56:30 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:25:00 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	ft_min_if(const int *a, int len_a, int pos)
+int	ft_min_if(const t_stack stack, int pos)
 {
-	int	result;
-	int	*a_copy;
-	int	i;
-	int	j;
-
-	a_copy = (int *) malloc(len_a * sizeof(int));
-	i = 0;
-	ft_memcpy(a_copy, a, len_a * sizeof(int));
-	while (i < len_a)
+	stack.base.i = 0;
+	while (stack.base.i < stack.len)
 	{
-		j = i + 1;
-		while (j < len_a)
+		stack.base.j = stack.base.i + 1;
+		while (stack.base.j < stack.len)
 		{
-			if (a_copy[i] > a_copy[j])
+			if (stack.stack[stack.base.i] > stack.stack[stack.base.j])
 			{
-				ft_swap(&a_copy[i], &a_copy[j]);
+				ft_swap(&stack.stack[stack.base.i], &stack.stack[stack.base.j]);
 			}
-			j++;
+			stack.base.j++;
 		}
-		i++;
+		stack.base.i++;
 	}	
-	result = a_copy[pos];
-	free(a_copy);
-	return (result);
+	stack.min = stack.stack[pos];
+	return (stack.min);
 }
 
-int	ft_max(int *a, int len_a)
+int	ft_max(t_stack stack)
 {
-	int	i;
-	int	max;
-
-	i = 0;
-	max = a[0];
-	while (i < len_a)
+	stack.base.i = 0;
+	stack.max = stack.stack[0];
+	while (stack.base.i < stack.len)
 	{
-		if (a[i] > max)
-			max = a[i];
-		i++;
+		if (stack.stack[stack.base.i] > stack.max)
+			stack.max = stack.stack[stack.base.i];
+		stack.base.i++;
 	}
-	return (max);
+	return (stack.max);
 }
 
-int	ft_find_min_pos_if(const int *x, int len_x, int n)
+int	ft_find_min_pos_if(const t_stack stack, int pos)
 {
-	int	i;
-	int	min_pos;
-	int	min;
-
-	min_pos = 0;
-	min = ft_min_if(x, len_x, n);
-	i = 0;
-	if (n < 0 || n > len_x)
+	stack.min_pos = 0;
+	stack.min = ft_min_if(stack, pos);
+	stack.base.i = 0;
+	if (pos < 0 || pos > stack.len)
 	{
 		return (-1);
 	}
-	while (i < len_x)
+	while (stack.base.i < stack.len)
 	{
-		if (x[i] == min)
+		if (stack.stack[stack.base.i] == stack.min)
 		{
-			min = x[i];
-			min_pos = i;
+			stack.min = stack.stack[stack.base.i];
+			stack.min_pos = stack.base.i;
 		}
-		i++;
+		stack.base.i++;
 	}
-	return (min_pos);
+	return (stack.min_pos);
 }

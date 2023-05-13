@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:57 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/08 11:10:27 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:56:31 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,21 @@ void	ft_exit_error(void)
 	exit(1);
 }
 
-void	ft_print_stack(int *x, int *y, int lenx, int leny)
+void	ft_print_stack(t_stash stash)
 {
-	int	i;
-
-	i = 0;
-	while (i < lenx || i < leny)
+	stash.a.base.i = 0;
+	while (stash.a.base.i < stash.a.len || stash.a.base.i < stash.b.len)
 	{
-		if (i < lenx)
-			ft_printf("%d ", x[i]);
+		if (stash.a.base.i < stash.a.len)
+			ft_printf("%d ", stash.a.stack[stash.a.base.i]);
 		else
 			ft_printf("  ");
-		if (i < leny)
-			ft_printf(" %d", y[i]);
+		if (stash.a.base.i < stash.b.len)
+			ft_printf(" %d", stash.b.stack[stash.a.base.i]);
 		else
 			ft_printf("  ");
 		ft_printf("\n");
-		i++;
+		stash.a.base.i++;
 	}
 	ft_printf("_  _\na  b\n");
 }

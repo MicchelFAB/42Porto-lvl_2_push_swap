@@ -1,10 +1,11 @@
-# 
-#base/ft_check_double.c base/ft_check_is_int.c base/ft_push.c base/ft_reverse_rotate.c base/ft_rotate.c base/ft_swap.c base/ft_min.c base/ft_sort3.c
-# 
+ 
+ 
 NAME 		:= dummy.a
 
 SRC_DIR 	:= src
-SRCS 		:=		base/utils.c \
+SRCS 		:=		base/utils.c base/ft_push.c base/ft_check_double.c base/ft_check_is_int.c \
+				base/ft_reverse_rotate.c base/ft_rotate.c base/ft_swap.c base/ft_min.c \
+				base/ft_sort3.c\
 					libft/ft_arrlen.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \
 				libft/ft_intlen.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
 				libft/ft_isdigit.c libft/ft_isprint.c libft/ft_isspace.c libft/ft_itoa.c \
@@ -26,6 +27,7 @@ SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 BUILD_DIR   := .build
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
+DEBUG		:= *.txt *.out
 
 CC 			:= cc
 CFLAGS 		:= -Wall -Wextra -Werror -g
@@ -54,7 +56,7 @@ clean:
 	$(RM) $(OBJS) $(DEPS) $(BUILD_DIR)
 
 fclean: clean
-	$(RM) $(NAME) a.out
+	$(RM) $(NAME) $(DEBUG)
 
 re:
 	$(MAKE) fclean

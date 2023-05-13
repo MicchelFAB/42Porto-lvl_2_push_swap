@@ -1,84 +1,61 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   teste4.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 11:54:53 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/10 09:48:58 by mamaral-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "../inc/push_swap.h"
-
-void	ft_push(t_stack *x, t_stack *y)
-{	
-	int	i;
-
-	i = 0;
-	if (x->len == 0)
-	{
-		return ;
-	}
-	if (y->len > 0)
-	{
-		i = y->len;
-		while (i > 0)
-		{
-			y->stack[i] = y->stack[i - 1];
-			i--;
-		}
-	}
-	y->stack[0] = x->stack[0];
-	y->len++;
-	i = 0;
-	while (i < x->len - 1)
-	{
-		x->stack[i] = x->stack[i + 1];
-		i++;
-	}
-	x->len--;
-}
-
-void	ft_pb(t_stack *a, t_stack *b)
+int main(int argc, char **argv) 
 {
-	ft_push(a, b);
-	ft_putstr_fd("pb\n", 1);
-}
+	int *stsha;
+	int *stshb;
+    int len_a;
+	int len_b;
 
-void	ft_pa(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	ft_putstr_fd("pa\n", 1);
-}
-
-int	main(int argc, char **argv)
-{
-	t_stash	stash;
-	int		i;
-
-	i = 0;
-	stash.a.len = argc - 1;
-	stash.b.len = 0;
-	stash.a.stack = (int *)malloc(sizeof(int) * stash.a.len);
-	stash.b.stack = (int *)malloc(sizeof(int) * stash.a.len);
-	while (i < stash.a.len)
+	int i;
+	
+	if (argc < 2)
 	{
-		stash.a.stack[i] = ft_atol(argv[i + 1]);
-		i++;
+		printf("Error: No arguments enouth");
+		return (0);
 	}
-	ft_pb(&stash.a, &stash.b);
-	ft_pb(&stash.a, &stash.b);
-	ft_pb(&stash.a, &stash.b);
-	ft_printf("\nstack a: \n");
-	for (int j = 0; j < stash.a.len; j++)
-		ft_printf("%d ", stash.a.stack[j]);
-	ft_printf("\nstack b: \n");
-    for (int j = 0; j < stash.b.len; j++)
-		ft_printf("%d ", stash.b.stack[j]);
-	ft_printf("\n");
-	free(stash.a.stack);
-	free(stash.b.stack);
-	return (0);
+	stsha = (int*)malloc(sizeof(int) * (argc-1));
+	stshb = (int*)malloc(sizeof(int) * (argc-1));
+	i = 0;
+	
+	while (++i < argc)
+		stsha[i - 1] = ft_atol(argv[i]);
+
+	len_a = argc - 1;
+	len_b = 0;
+	i = 0;
+
+	// ft_sort3(&stsha, len_a);
+	ft_sort5(stsha, stshb, &len_a, &len_b);
+	// printf("pos 1: %d\n pos 2: %d\n", ft_find_min_pos_if(stsha, len_a, 1), ft_find_min_pos_if(stsha, len_a, 2));
+
+	// ft_pb(&stsha, &stshb, &len_a, &len_b);
+	// ft_pb(&stsha, &stshb, &len_a, &len_b);
+	// ft_pa(&stsha, &stshb, &len_a, &len_b);
+		
+	// ft_sa(&stsha);
+	// ft_ra(&stsha, *len_a);
+	// ft_rrr(&stsha, &stshb, *len_a, *len_b);
+	// ft_sb(&stshb);
+	// ft_pb(&stsha, &stshb, len_a, len_b);
+	// ft_rb(&stshb);
+	//ft_rrr(&stsha, &stshb);
+	// i = 0;
+	// while(i < argc-1)
+	// {
+	// 	printf("%d ", stsha[i]);
+	// 	i++;
+	// }
+	printf("\nstack a: \n");
+    for (int j = 0; j < len_a; j++)
+        printf("%d ", stsha[j]);
+
+    printf("\nstack b: \n");
+    for (int j = 0; j < len_b; j++)
+        printf("%d ", stshb[j]);
+
+    printf("\n");
+    free(stsha);
+    free(stshb);
+    return (0);
 }
+
+

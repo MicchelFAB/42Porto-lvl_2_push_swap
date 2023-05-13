@@ -6,42 +6,39 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:59:49 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/14 18:39:56 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:35:53 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void ft_rotate(int *stack, int len)
+void	ft_rotate(t_stack stack)
 {
-    int first;
-	int i;
-
-	first = stack[0];
-	i = 0;
-	while (i < len - 1)
+	stack.base.first = stack.stack[0];
+	stack.base.i = 0;
+	while (stack.base.i < stack.len - 1)
 	{
-		stack[i] = stack[i + 1];
-		i++;
+		stack.stack[i] = stack.stack[stack.base.i + 1];
+		stack.base.i++;
 	}
-	stack[len - 1] = first;
+	stack.stack[stack.len - 1] = stack.base.first;
 }
 
-void	ft_ra(int *a, int len_a)
+void	ft_ra(t_stash a)
 {
-	ft_rotate(a, len_a);
+	ft_rotate(a.a);
 	ft_putstr_fd("ra\n", 1);
 }
 
-void	ft_rb(int *b, int len_b)
+void	ft_rb(t_stash b)
 {
-	ft_rotate(b, len_b);
+	ft_rotate(b.b);
 	ft_putstr_fd("rb\n", 1);
 }
 
-void	ft_rr(int *a, int *b, int len_a, int len_b)
+void	ft_rr(t_stash ab)
 {
-	ft_rotate(a, len_a);
-	ft_rotate(b, len_b);
+	ft_rotate(ab.a);
+	ft_rotate(ab.b);
 	ft_putstr_fd("rr\n", 1);
 }

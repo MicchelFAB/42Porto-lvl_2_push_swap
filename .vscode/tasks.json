@@ -1,0 +1,40 @@
+// {
+// 	"tasks": [
+// 		{
+// 			"label": "build",
+// 			"type": "shell",
+// 			"command": "make test",
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			}
+// 		}
+// 	],
+// 	"version": "2.0.0"
+// }
+
+{
+    "tasks": [
+		{
+            "label": "build",
+            "type": "shell",
+            "command": "cc",
+			"args": [
+				"-Wall",
+				"-Wextra",
+				"-Werror",
+				"-g",
+				"junk/teste.c",
+				"dummy.a",
+				"-o",
+				"a.out"
+			],
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+				"problemMatcher": "$gcc"
+            }
+        }
+	],
+    "version": "2.0.0"
+}

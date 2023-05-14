@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:59:49 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/10 19:35:53 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:04:02 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_rotate(t_stack stack)
 	stack.base.i = 0;
 	while (stack.base.i < stack.len - 1)
 	{
-		stack.stack[i] = stack.stack[stack.base.i + 1];
+		stack.stack[stack.base.i] = stack.stack[stack.base.i + 1];
 		stack.base.i++;
 	}
 	stack.stack[stack.len - 1] = stack.base.first;

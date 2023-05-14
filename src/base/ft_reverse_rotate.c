@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 13:49:37 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/10 19:33:37 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:03:30 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_reverse_rotate(t_stack stack)
 {
 	stack.base.i = stack.len - 1;
-	stack.last = stack.stack[stack.len - 1];
+	stack.base.last = stack.stack[stack.len - 1];
 	while (stack.base.i > 0)
 	{
 		stack.stack[stack.base.i] = stack.stack[stack.base.i - 1];
 		stack.base.i--;
 	}
-	stack.stack[0] = stack.last;
+	stack.stack[0] = stack.base.last;
 }
 
 void	ft_rra(t_stash a)

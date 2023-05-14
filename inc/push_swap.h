@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/10 19:56:48 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:38:07 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ typedef struct s_base
 	int	result;
 	int	first;
 	int	last;
-	size_t	i;
 	int	j;
+	int	i;
 }t_base;
 
 typedef struct s_stack
 {
 	int		*stack;
-	size_t	len;
+	int		len;
 	t_base	base;
 }t_stack;
 
@@ -69,7 +69,7 @@ void			ft_pa(t_stack *a, t_stack *b);
 void			ft_pb(t_stack *a, t_stack *b);
 
 // function that interact with the stack
-void			*ft_realloc(void *ptr, size_t size);
+void			*ft_realloc(void *ptr, int size);
 long long int	ft_atol(const char *nptr);
 
 // function that check the stack for errors
@@ -87,7 +87,7 @@ int				ft_find_min_pos_if(const t_stack stack, int pos);
 void			ft_print_stack(t_stash stash);
 
 // sorting functions
-void			ft_sort3(t_stack stack);
+void			ft_sort3(t_stash stash);
 /*
 void			*ft_sort5(t_stack stack);
  */

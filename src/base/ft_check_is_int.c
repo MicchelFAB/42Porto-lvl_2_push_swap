@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:48:30 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/10 19:17:57 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:30:31 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,19 @@ int	ft_check_is_int(const char *arg)
 			}
 		i++;
 		}
-		return (1);
 	}
+	return (1);
 }
 
-int	ft_is_sorted(const t_stack stack)
+int	ft_is_sorted(t_stack stack)
 {
+	t_stack	tmp;
+
+	tmp.stack = stack.stack;
 	stack.base.i = 0;
 	while (stack.base.i < stack.len - 1)
 	{
-		if (stack.stack[stack.base.i] > stack.stack[stack.base.i + 1])
+		if (tmp.stack[stack.base.i] > tmp.stack[stack.base.i + 1])
 		{
 			return (0);
 		}

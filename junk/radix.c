@@ -148,7 +148,9 @@ int	main(int argc, char **argv)
 	// for(int i = 1; i < len_a; i++)
 	// 	ft_printf("%d ", ft_find_min_pos_if(a, len_a, i));
 	// printf("min pos: %d\n", ft_find_min_pos_if(stash.a, 0));
-	printf("min: %d\n", ft_min_if(stash.a, 0));
+	printf("min 0: %d  position 0: %d\n", ft_min_if(stash.a, 0), ft_find_min_pos_if(stash.a, 0));
+	printf("min 1: %d  position 1: %d\n", ft_min_if(stash.a, 1), ft_find_min_pos_if(stash.a, 1));
+	printf("min 2: %d  position 2: %d\n", ft_min_if(stash.a, 2), ft_find_min_pos_if(stash.a, 2));
 
 	ft_printf("\nstack a: \n");
     for (int j = 0; j < stash.a.len; j++)

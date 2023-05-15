@@ -6,33 +6,32 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:57 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/14 22:17:21 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:38:52 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	ft_min_if(const t_stack stack, int pos)
+int	ft_min_if(t_stack stack, int pos)
 {
-	int	*tmp;
-
-	tmp = malloc(stack.len * sizeof(int));
-	tmp.stack = stack.stack;
+	stack.base.tmp = malloc(stack.len * sizeof(int));
+	ft_memcpy(stack.base.tmp, stack.stack, stack.len * sizeof(int));
 	stack.base.i = 0;
 	while (stack.base.i < stack.len)
 	{
 		stack.base.j = stack.base.i + 1;
 		while (stack.base.j < stack.len)
 		{
-			if (tmp.stack[stack.base.i] > tmp.stack[stack.base.j])
+			if (stack.base.tmp[stack.base.i] > stack.base.tmp[stack.base.j])
 			{
-				ft_swap(&tmp.stack[stack.base.i], &tmp.stack[stack.base.j]);
+				ft_swap(&stack.base.tmp[stack.base.i], &stack.base.tmp[stack.base.j]);
 			}
 			stack.base.j++;
 		}
 		stack.base.i++;
 	}	
-	stack.base.min = tmp.stack[pos];
+	stack.base.min = stack.base.tmp[pos];
+	free(stack.base.tmp);
 	return (stack.base.min);
 }
 
@@ -51,9 +50,8 @@ int	ft_max(t_stack stack)
 
 int	ft_find_min_pos_if(t_stack stack, int pos)
 {
-	t_stack	tmp;
-
-	tmp.stack = stack.stack;
+	stack.base.tmp = malloc(stack.len * sizeof(int));
+	ft_memcpy(stack.base.tmp, stack.stack, stack.len * sizeof(int));
 	stack.base.min_pos = 0;
 	stack.base.min = ft_min_if(stack, pos);
 	stack.base.i = 0;
@@ -63,12 +61,13 @@ int	ft_find_min_pos_if(t_stack stack, int pos)
 	}
 	while (stack.base.i < stack.len)
 	{
-		if (tmp.stack[stack.base.i] == stack.base.min)
+		if (stack.base.tmp[stack.base.i] == stack.base.min)
 		{
-			stack.base.min = tmp.stack[stack.base.i];
+			stack.base.min = stack.base.tmp[stack.base.i];
 			stack.base.min_pos = stack.base.i;
 		}
 		stack.base.i++;
 	}
+	free(stack.base.tmp);
 	return (stack.base.min_pos);
 }

@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/14 16:38:07 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/14 21:18:52 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void			ft_print_stack(t_stash stash);
 
 // sorting functions
 void			ft_sort3(t_stash stash);
-/*
-void			*ft_sort5(t_stack stack);
- */
+
+int				main(int argc, char **argv);
+void				ft_pre_radix(t_stack stack);
 #endif

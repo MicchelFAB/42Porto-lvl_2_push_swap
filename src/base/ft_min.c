@@ -6,16 +6,17 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:57 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/14 16:31:59 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/14 22:17:21 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	ft_min_if(t_stack stack, int pos)
+int	ft_min_if(const t_stack stack, int pos)
 {
-	t_stack	tmp;
+	int	*tmp;
 
+	tmp = malloc(stack.len * sizeof(int));
 	tmp.stack = stack.stack;
 	stack.base.i = 0;
 	while (stack.base.i < stack.len)

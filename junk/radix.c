@@ -12,35 +12,28 @@
 
 #include "../inc/push_swap.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
 // function that convert the value of the element to the index of the stack
-int	ft_pre_radix(int *m, int size_m)
+void	ft_pre_radix(t_stack stack)
 {
 	int	*tmp;
-	int	i;
-	int	j;
 
-	tmp = malloc(sizeof(int) * size_m);
-	i = 0;
-	while (i < size_m)
+	tmp = stack.stack;
+	stack.base.i = 0;
+	while (stack.base.i < stack.len)
 	{
-		j = ft_find_min_pos_if(m, size_m, i);
-		tmp[j] = i;
-		i++;
+		stack.base.j = ft_find_min_pos_if(stack, stack.base.i);
+		tmp[stack.base.j] = stack.base.j;
+		stack.base.j++;
 	}
-	i = 0;
-	while (i < size_m)
+	stack.base.i = 0;
+	while (stack.base.i < stack.len)
 	{
-		m[i] = tmp[i];
-		i++;
+		stack.stack[stack.base.i] = tmp[stack.base.i];
+		stack.base.i++;
 	}
-	free(tmp);
-	return (0);
 }
 
-void	radix_sort(int *arr, int n)
+/* void	radix_sort(int *arr, int n)
 {
 	int	max_digit_count = 0;
 	int	i,	j,	divisor = 1;
@@ -101,16 +94,16 @@ void	radix_sort(int *arr, int n)
 	free(tmp);
 }
 
-void	radix_sort_stacks(int *a, int *b, int len_a, int len_b)
+void	radix_sort_stacks(t_stash stash)
 {
 	// Concatenate stacks a and b into a single array for sorting
-	int *arr;
+	t_stash *arr;
 	int	i;
 
-	arr = malloc((len_a + len_b) * sizeof(int));
-	ft_print_stack(a, b, len_a, len_b);
-	ft_pre_radix(a, len_a);
-	ft_print_stack(a, b, len_a, len_b);
+	arr = malloc((stash.a.len + stash.b.len) * sizeof(int));
+	ft_print_stack(stash);
+	ft_pre_radix(arr.a);
+	ft_print_stack(stash);
 	for (i = 0; i < len_a; i++) 
 	{
 		arr[i] = a[i];
@@ -132,13 +125,10 @@ void	radix_sort_stacks(int *a, int *b, int len_a, int len_b)
 	}
 	free(arr);
 }
-
+ */
 int	main(int argc, char **argv)
 {
-	int	*a;
-	int	*b;
-	int	len_a;
-	int	len_b;
+	t_stash	stash;
 	int	i;
 
 	if (argc < 2)
@@ -146,29 +136,30 @@ int	main(int argc, char **argv)
 		ft_printf("Error: No arguments enough\n");
 		return (0);
 	}
-	a = (int *) malloc(sizeof(int) * (argc - 1));
-	b = (int *) malloc(sizeof(int) * (argc - 1));
+	stash.a.stack = (int *)malloc(sizeof(int) * (argc-1));
+	stash.b.stack = (int *)malloc(sizeof(int) * (argc-1));
 	i = 0;
 	while (++i < argc)
-	{
-		a[i - 1] = atoi(argv[i]);
-	}
+		stash.a.stack[i - 1] = ft_atol(argv[i]);
 
-	len_a = argc - 1;
-	len_b = 0;
+	stash.a.len = argc - 1;
+	stash.b.len = 0;
 
 	// for(int i = 1; i < len_a; i++)
 	// 	ft_printf("%d ", ft_find_min_pos_if(a, len_a, i));
-	radix_sort_stacks(a, b, len_a, len_b);
+	// printf("min pos: %d\n", ft_find_min_pos_if(stash.a, 0));
+	printf("min: %d\n", ft_min_if(stash.a, 0));
 
 	ft_printf("\nstack a: \n");
-	for (int j = 0; j < len_a; j++)
-		ft_printf("%d ", a[j]);
-	ft_printf("\nstack b: \n");
-	for (int j = 0; j < len_b; j++)
-		ft_printf("%d ", b[j]);
-	ft_printf("\n");
-	free(a);
-	free(b);
+    for (int j = 0; j < stash.a.len; j++)
+        ft_printf("%d ", stash.a.stack[j]);
+
+    ft_printf("\nstack b: \n");
+    for (int j = 0; j < stash.b.len; j++)
+        ft_printf("%d ", stash.b.stack[j]);
+
+    ft_printf("\n");
+    free(stash.a.stack);
+    free(stash.b.stack);
 	return (0);
 }

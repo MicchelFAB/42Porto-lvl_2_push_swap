@@ -16,14 +16,14 @@
 void	ft_pre_radix(t_stack stack)
 {
 	int	*tmp;
-
-	tmp = stack.stack;
+	tmp = malloc(stack.len * sizeof(int));
+	ft_memcpy(tmp, stack.stack, stack.len * sizeof(int));
 	stack.base.i = 0;
 	while (stack.base.i < stack.len)
 	{
 		stack.base.j = ft_find_min_pos_if(stack, stack.base.i);
-		tmp[stack.base.j] = stack.base.j;
-		stack.base.j++;
+		tmp[stack.base.j] = stack.base.i;
+		stack.base.i++;
 	}
 	stack.base.i = 0;
 	while (stack.base.i < stack.len)
@@ -31,6 +31,7 @@ void	ft_pre_radix(t_stack stack)
 		stack.stack[stack.base.i] = tmp[stack.base.i];
 		stack.base.i++;
 	}
+	free(tmp);
 }
 
 /* void	radix_sort(int *arr, int n)
@@ -148,10 +149,11 @@ int	main(int argc, char **argv)
 	// for(int i = 1; i < len_a; i++)
 	// 	ft_printf("%d ", ft_find_min_pos_if(a, len_a, i));
 	// printf("min pos: %d\n", ft_find_min_pos_if(stash.a, 0));
-	printf("min 0: %d  position 0: %d\n", ft_min_if(stash.a, 0), ft_find_min_pos_if(stash.a, 0));
-	printf("min 1: %d  position 1: %d\n", ft_min_if(stash.a, 1), ft_find_min_pos_if(stash.a, 1));
-	printf("min 2: %d  position 2: %d\n", ft_min_if(stash.a, 2), ft_find_min_pos_if(stash.a, 2));
+	// printf("min 0: %d  position 0: %d\n", ft_min_if(stash.a, 0), ft_find_min_pos_if(stash.a, 0));
+	// printf("min 1: %d  position 1: %d\n", ft_min_if(stash.a, 1), ft_find_min_pos_if(stash.a, 1));
+	// printf("min 2: %d  position 2: %d\n", ft_min_if(stash.a, 2), ft_find_min_pos_if(stash.a, 2));
 
+	ft_pre_radix(stash.a);
 	ft_printf("\nstack a: \n");
     for (int j = 0; j < stash.a.len; j++)
         ft_printf("%d ", stash.a.stack[j]);

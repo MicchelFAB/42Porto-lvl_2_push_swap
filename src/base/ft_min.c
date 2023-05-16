@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:57 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/15 17:38:52 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/16 07:57:36 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	ft_max(t_stack stack)
 
 int	ft_find_min_pos_if(t_stack stack, int pos)
 {
-	stack.base.tmp = malloc(stack.len * sizeof(int));
-	ft_memcpy(stack.base.tmp, stack.stack, stack.len * sizeof(int));
+	stack.base.tpm = malloc(stack.len * sizeof(int));
+	ft_memcpy(stack.base.tpm, stack.stack, stack.len * sizeof(int));
 	stack.base.min_pos = 0;
 	stack.base.min = ft_min_if(stack, pos);
 	stack.base.i = 0;
@@ -61,13 +61,13 @@ int	ft_find_min_pos_if(t_stack stack, int pos)
 	}
 	while (stack.base.i < stack.len)
 	{
-		if (stack.base.tmp[stack.base.i] == stack.base.min)
+		if (stack.base.tpm[stack.base.i] == stack.base.min)
 		{
-			stack.base.min = stack.base.tmp[stack.base.i];
+			stack.base.min = stack.base.tpm[stack.base.i];
 			stack.base.min_pos = stack.base.i;
 		}
 		stack.base.i++;
 	}
-	free(stack.base.tmp);
+	free(stack.base.tpm);
 	return (stack.base.min_pos);
 }

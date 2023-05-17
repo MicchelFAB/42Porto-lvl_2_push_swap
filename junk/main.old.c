@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.old.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:50:46 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/17 09:35:51 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/17 09:34:28 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void push_swap(t_stash stash)
-{
-	
-}
 
 int main(int argc, char **argv)
 {
@@ -24,17 +19,16 @@ int main(int argc, char **argv)
 	
 	if (argc < 2)
 	{
+		ft_printf("Error: No arguments enouth");
 		return (0);
 	}
-	if (!ft_all_good(argc, argv))
-		return (0);
 	// stash = (t_stash *)malloc(sizeof(int) * (argc-1));
 	stash.a.stack = (int *)malloc(sizeof(int) * (argc-1));
 	stash.b.stack = (int *)malloc(sizeof(int) * (argc-1));
 	i = 0;
-	
 	while (++i < argc)
 		stash.a.stack[i - 1] = ft_atol(argv[i]);
+
 	stash.a.len = argc - 1;
 	stash.b.len = 0;
 	i = 0;

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_is_int.c                                  :+:      :+:    :+:   */
+/*   ft_index.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 12:48:30 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/17 09:33:08 by mamaral-         ###   ########.fr       */
+/*   Created: 2023/05/16 09:10:45 by mamaral-          #+#    #+#             */
+/*   Updated: 2023/05/16 09:47:27 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	ft_is_sorted(t_stack stack)
+void	ft_index(t_stack stack)
 {
-	t_stack	tmp;
+	int	*tmp;
 
-	tmp.stack = stack.stack;
+	tmp = malloc(stack.len * sizeof(int));
+	ft_memcpy(tmp, stack.stack, stack.len * sizeof(int));
 	stack.base.i = 0;
-	while (stack.base.i < stack.len - 1)
+	while (stack.base.i < stack.len)
 	{
-		if (tmp.stack[stack.base.i] > tmp.stack[stack.base.i + 1])
-		{
-			return (0);
-		}
+		stack.base.j = ft_find_min_pos_if(stack, stack.base.i);
+		tmp[stack.base.j] = stack.base.i;
 		stack.base.i++;
 	}
-	return (1);
+	stack.base.i = 0;
+	while (stack.base.i < stack.len)
+	{
+		stack.stack[stack.base.i] = tmp[stack.base.i];
+		stack.base.i++;
+	}
+	free(tmp);
 }

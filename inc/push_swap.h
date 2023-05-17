@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/16 07:57:13 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:44:46 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_base
 	int	min;
 	int	min_pos;
 	int	max;
-	int *tmp;
-	int *tpm;
+	int	*tmp;
+	int	*tpm;
 	int	result;
 	int	first;
 	int	last;
@@ -92,5 +92,5 @@ void			ft_print_stack(t_stash stash);
 void			ft_sort3(t_stash stash);
 
 int				main(int argc, char **argv);
-void				ft_pre_radix(t_stack stack);
+void			ft_index(t_stack stack);
 #endif

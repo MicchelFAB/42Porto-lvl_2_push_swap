@@ -1,41 +1,49 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   teste.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 11:54:53 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/14 16:40:06 by mamaral-         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   teste.c											:+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: mamaral- <mamaral-@student.42porto.com	 +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2023/04/17 11:54:53 by mamaral-		  #+#	#+#			 */
+/*   Updated: 2023/05/17 17:07:53 by mamaral-		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_is_sorted(t_stack stack)
 {
-	t_stash	stash;
-	int		i;
+	t_stack	tmp;
 
-	i = 0;
-	stash.a.len = argc - 1;
-	stash.b.len = 0;
-	stash.a.stack = (int *)malloc(sizeof(int) * stash.a.len);
-	stash.b.stack = (int *)malloc(sizeof(int) * stash.a.len);
-	while (i < stash.a.len)
+	tmp.stack = stack.stack;
+	stack.base.i = 0;
+	while (stack.base.i < stack.len - 1)
 	{
-		stash.a.stack[i] = ft_atol(argv[i + 1]);
-		i++;
+		if (tmp.stack[stack.base.i] > tmp.stack[stack.base.i + 1])
+		{
+			return (0);
+		}
+		stack.base.i++;
 	}
-	ft_sort3(stash);
-	ft_printf("\nstack a: \n");
-	for (int j = 0; j < stash.a.len; j++)
-		ft_printf("%d ", stash.a.stack[j]);
-	ft_printf("\nstack b: \n");
-	for (int j = 0; j < stash.b.len; j++)
-		ft_printf("%d ", stash.b.stack[j]);
-	ft_printf("\n");
-	free(stash.a.stack);
-	free(stash.b.stack);
+	return (1);
+}
+
+
+/* void push_swap(t_stash stash)
+{
+	
+} */
+
+int main(int argc, char **argv)
+{
+	int i;
+	
+	i = 1;
+	while (i < argc)
+	{
+	printf("%d",ft_check_is_int(argv[i]));
+	i++;
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/16 09:44:46 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/20 19:53:47 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,12 @@ void			*ft_realloc(void *ptr, int size);
 long long int	ft_atol(const char *nptr);
 
 // function that check the stack for errors
+int 			ft_all_good(const int argc, char **argv);
 int				ft_check_is_int(const char *arg);
 int				ft_is_sorted(const t_stack stack);
 int				ft_check_double(const int argc, char **argv);
 int				ft_integer_limits(const char *arg);
-int				ft_check_stack(const t_stash stash);
+int				ft_check_stack(const t_stack stack);
 void			ft_exit_error(void);
 
 // function that complement the process
@@ -93,4 +94,9 @@ void			ft_sort3(t_stash stash);
 
 int				main(int argc, char **argv);
 void			ft_index(t_stack stack);
+
+void			ft_big_numbers(t_stash *stash);
+void			ft_send_half(t_stash *half);
+void			push_swap(t_stash *stash);
+
 #endif

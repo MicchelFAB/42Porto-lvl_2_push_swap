@@ -24,7 +24,7 @@
 				"-Wextra",
 				"-Werror",
 				"-g",
-				"junk/teste.c",
+				"junk/main.c",
 				"dummy.a",
 				"-o",
 				"a.out"

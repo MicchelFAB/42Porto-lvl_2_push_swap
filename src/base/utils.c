@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:57 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/14 15:58:47 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:01:03 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,19 @@ void	ft_print_stack(t_stash stash)
 		stash.a.base.i++;
 	}
 	ft_printf("_  _\na  b\n");
+}
+
+int	absolute(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
+void	ft_free_all(t_stash *stash)
+{
+	free(stash->a.stack);
+	free(stash->b.stack);
+	free(stash->a.moves);
+	free(stash->b.moves);
 }

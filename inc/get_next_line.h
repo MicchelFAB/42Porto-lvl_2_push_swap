@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:30:00 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/12 12:49:22 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:00:56 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <unistd.h>
 # include <fcntl.h> 
 # include <stdio.h>
+# include "libft.h"
+
 
 //define BUFFER_SIZE
 # ifndef BUFFER_SIZE
@@ -27,9 +29,5 @@
 
 //define functions
 char	*get_next_line(int fd);
-void	*ft_calloc(size_t nmemb, size_t size);
-size_t	ft_strlen(const char *str);
-char	*ft_strdup(const char *s1);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
+void	*ft_calloc_gnl(size_t count, size_t size);
 #endif

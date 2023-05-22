@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 10:18:57 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/16 07:57:36 by mamaral-         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ft_min.c										   :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: mamaral- <mamaral-@student.42porto.com	 +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2023/05/08 10:18:57 by mamaral-		  #+#	#+#			 */
+/*   Updated: 2023/05/22 09:46:33 by mamaral-		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
@@ -69,5 +69,21 @@ int	ft_find_min_pos_if(t_stack stack, int pos)
 		stack.base.i++;
 	}
 	free(stack.base.tpm);
+	return (stack.base.min_pos);
+}
+
+int	ft_find_min_pos_value(t_stack stack, int value)
+{
+	stack.base.min_pos = -1;
+	stack.base.i = 0;
+	while (stack.base.i < stack.len)
+	{
+		if (stack.stack[stack.base.i] == value)
+		{
+			stack.base.min_pos = stack.base.i;
+			break ;
+		}
+		stack.base.i++;
+	}
 	return (stack.base.min_pos);
 }

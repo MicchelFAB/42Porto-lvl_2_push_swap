@@ -1,19 +1,17 @@
- 
- 
-NAME 		:= dummy.a
+NAME 		:= push_swap
 
 SRC_DIR 	:= src
-SRCS 		:=		base/utils.c base/ft_push.c base/ft_check_stack.c base/ft_reverse_rotate.c \
+SRCS 		:= base/utils.c base/ft_push.c base/ft_check_stack.c base/ft_reverse_rotate.c \
 				base/ft_rotate.c base/ft_swap.c base/ft_min.c base/ft_sort3.c base/ft_index.c \
-				base/ft_big_numbers.c\
-					libft/ft_arrlen.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \
+				base/ft_big_numbers.c base/ft_move_operations.c base/push_swap.c \
+				libft/ft_arrlen.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \
 				libft/ft_intlen.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
 				libft/ft_isdigit.c libft/ft_isprint.c libft/ft_isspace.c libft/ft_itoa.c \
 				libft/ft_lstadd_back.c libft/ft_lstadd_front.c libft/ft_lstclear.c \
 				libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstlast.c libft/ft_lstmap.c \
 				libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_memchr.c libft/ft_memcmp.c \
 				libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_printf.c \
-				libft/ft_putchar_fd.c libft/ft_putcharpf.c libft/ft_putendl_fd.c\
+				libft/ft_putchar_fd.c libft/ft_putcharpf.c libft/ft_putendl_fd.c \
 				libft/ft_puthexpf.c libft/ft_putnbr_fd.c libft/ft_putnbrpf.c libft/ft_putptrpf.c \
 				libft/ft_putstr_fd.c libft/ft_putstrpf.c libft/ft_putunbrpf.c libft/ft_split.c \
 				libft/ft_strchr.c libft/ft_strdup.c libft/ft_strjoin.c libft/ft_strlcat.c \
@@ -30,7 +28,7 @@ DEPS		:= $(OBJS:.o=.d)
 DEBUG		:= *.txt *.out
 
 CC 			:= cc
-CFLAGS 		:= -Wall -Wextra -Werror -g
+CFLAGS 		:= -Wall -Wextra -Werror -g 
 CPPFLAGS	:= -MMD -MP -I include
 AR			:= ar
 ARFLAGS		:= -r -c -s
@@ -42,13 +40,13 @@ DIR_DUP	 = mkdir -p $(@D)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS) 
-	$(info GERADO $(NAME))
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $(NAME) $(OBJS)
+	$(info Generated $(NAME))
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
-	$(info GERADO $@)
+	$(info Generated $@)
 
 -include $(DEPS)
 

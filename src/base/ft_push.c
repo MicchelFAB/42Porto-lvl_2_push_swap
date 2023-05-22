@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:54:53 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/10 19:31:32 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:52:44 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void	ft_push(t_stack *x, t_stack *y)
 	x->len--;
 }
 
-void	ft_pb(t_stack *a, t_stack *b)
+void	ft_pb(t_stash *a)
 {
-	ft_push(a, b);
+	ft_push(&a->a, &a->b);
 	ft_putstr_fd("pb\n", 1);
 }
 
-void	ft_pa(t_stack *a, t_stack *b)
+void	ft_pa(t_stash *b)
 {
-	ft_push(b, a);
+	ft_push(&b->b, &b->a);
 	ft_putstr_fd("pa\n", 1);
 }

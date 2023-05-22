@@ -6,85 +6,103 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:06:48 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/21 10:30:02 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:59:17 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	get_a_position(t_stack **sa, int b_index, int max, int a_pos)
+void	last_rotates(t_stash *stash)
 {
-	t_stack	*a;
+	int	lower_position;
 
-	a = *sa;
-	while (a)
+	lower_position = ft_find_min_pos_if(stash->a, 0);
+	if (lower_position > stash->a.len / 2)
 	{
-		if (a->main_index > b_index && a->main_index < max)
-		{
-			max = a->main_index;
-			a_pos = a->position;
-		}
-		a = a->next;
+		while (lower_position++ < stash->a.len)
+			ft_rra(*stash);
 	}
-	if (max != INT_MAX)
-		return (a_pos);
-	a = *sa;
-	while (a)
+	else
 	{
-		if (a->main_index < max)
-		{
-			max = a->main_index;
-			a_pos = a->position;
-		}
-		a = a->next;
+		while (lower_position--)
+			ft_ra(*stash);
 	}
-	return (a_pos);
 }
 
-void	ft_sort_a(t_stash *stash)
-{
-	int	pos_a;
+void	ft_calc_moviment(t_stash *stash)
+{	
+	int	i;
 
-	pos_a = 0;
+	i = 0;
 	while (i < stash->b.len)
 	{
-		pos_a = ft_a_pos(stash->a, stash->b);
-		b->base.last = pos_a;
+		stash->b.moves[i] = i;
+		if (i > stash->b.len / 2)
+			stash->b.moves[i] = (stash->b.len - \
+			i) * -1;
+		stash->a.moves[i] = stash->b.base.result;
+		if (stash->b.base.result > stash->a.len / 2)
+			stash->a.moves[i] = (stash->a.len - \
+			stash->b.base.result) * -1;
 		i++;
 	}
 }
 
-void	ft_big_numbers(t_stash *stash)
+int	ft_sort_a(t_stash *stash)
 {
-	ft_send_half(stash);
-	while (stash->b.len > 0)
+	int	pos_a;
+	int	i;
+
+	pos_a = 0;
+	i = 0;
+	stash->b.base.max = INT_MAX;
+	while (i < stash->a.len)
 	{
-		ft_sort_a(stash);
+		if (stash->a.stack[i] > stash->b.stack[0] && stash->a.stack[i] < \
+		stash->b.base.max)
+		{
+			stash->b.base.max = stash->a.stack[i];
+			pos_a = i;
+		}
+		i++;
 	}
+	return (pos_a);
+}
+
+void	ft_fit_a(t_stash *stash)
+{
+	int	pos_a;
+	int	i;
+
+	pos_a = 0;
+	i = 0;
+	if (stash->b.len > 0)
+		stash->b.base.result = ft_sort_a(stash);
 }
 
 void	ft_send_half(t_stash *half)
 {
-	int		pushed;
+	int	pushed;
+	int	size;
+	int	i;
 
-	half->a.base.result = half->a.len;
+	size = half->a.len;
 	pushed = 0;
-	half->a.base.i = 0;
-	while (half->a.base.result > 6 && half->a.base.i < half->a.base.result && \
-	pushed < half->a.base.result / 2)
+	i = 0;
+	while (size > 6 && i < size && pushed < size / 2)
 	{
-		if (*half->a.stack <= half->a.base.result / 2)
+		if (half->a.stack[0] <= size / 2)
 		{
-			ft_pb(&half->a, &half->b);
+			ft_pb(half);
 			pushed++;
 		}
 		else
 			ft_ra(*half);
-		half->a.base.i++;
+		i++;
 	}
-	while (half->a.base.result - pushed > 3)
+	while (size - pushed > 3)
 	{
-		ft_pb(&half->a, &half->b);
+		ft_pb(half);
 		pushed++;
 	}
 	ft_sort3(*half);

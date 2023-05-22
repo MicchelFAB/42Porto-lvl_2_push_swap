@@ -35,12 +35,14 @@
 *.i*86
 *.x86_64
 *.hex
+push_swap
 
 # Debug files
 *.dSYM/
 *.su
 *.idb
 *.pdb
+*.txt
 
 # Kernel Module Compile Results
 *.mod*
@@ -48,6 +50,7 @@
 .VSCodeCounter/
 .tmp_versions/
 .vscode/
+push_swap_visualizer/
 modules.order
 Module.symvers
 Mkfile.old

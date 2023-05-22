@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 10:38:06 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/14 11:48:28 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:46:20 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*save_rest(char	*str)
 		free(str);
 		return (NULL);
 	}
-	new = ft_calloc(sizeof(char), ((ft_strlen(str) - i) + 1));
+	new = ft_calloc_gnl(sizeof(char), ((ft_strlen(str) - i) + 1));
 	if (!new)
 		return (NULL);
 	i++;
@@ -48,7 +48,7 @@ char	*ft_get_line(char *save)
 		return (NULL);
 	while (save[i] && save[i] != '\n')
 		i++;
-	dest = ft_calloc(sizeof(char), (i + 2));
+	dest = ft_calloc_gnl(sizeof(char), (i + 2));
 	i = 0;
 	while (save[i] && save[i] != '\n')
 	{
@@ -88,7 +88,7 @@ char	*get_next_line(int fd)
 	stored = BUFFER_SIZE;
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FOPEN_MAX)
 		return (NULL);
-	buffer = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
+	buffer = ft_calloc_gnl(sizeof(char), (BUFFER_SIZE + 1));
 	while (!(ft_strchr(buffer, '\n')) && stored != 0)
 	{
 		stored = read(fd, buffer, BUFFER_SIZE);

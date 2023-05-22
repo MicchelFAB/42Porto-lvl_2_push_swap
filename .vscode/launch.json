@@ -5,9 +5,9 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/a.out",
+            "program": "${workspaceFolder}/push_swap",
             "args": [
-				"3", "2", "1", "4", "8"
+				"10", "9", "8", "7", "6", "5", "4", "3", "2", "1"
 			],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

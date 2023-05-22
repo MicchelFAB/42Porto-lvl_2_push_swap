@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:50:46 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 14:30:19 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:06:34 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int	ft_is_sorted(t_stack stack)
 {
@@ -27,6 +27,19 @@ int	ft_is_sorted(t_stack stack)
 		stack.base.i++;
 	}
 	return (1);
+}
+
+void	ft_big_numbers(t_stash *stash)
+{
+	ft_send_half(stash);
+	while (stash->b.len > 0)
+	{
+		ft_fit_a(stash);
+		ft_calc_moviment(stash);
+		less_moves_sort(stash);
+	}
+	if (!ft_is_sorted(stash->a))
+		last_rotates(stash);
 }
 
 void	push_swap(t_stash *stash)
@@ -62,19 +75,9 @@ int	main(int argc, char **argv)
 		stash.a.stack[i - 1] = ft_atol(argv[i]);
 	stash.a.len = argc - 1;
 	stash.b.len = 0;
-	// ft_index(stash.a);
-	while(!ft_is_sorted(stash.a))
-		push_swap(&stash);
-	// ft_printf("\nstack a: \n");
-	// for (int j = 0; j < stash.a.len; j++)
-	// 	ft_printf("%d ", stash.a.stack[j]);
-	// ft_printf("\nstack b: \n");
-	// for (int j = 0; j < stash.b.len; j++)
-	// 	ft_printf("%d ", stash.b.stack[j]);
-	// ft_printf("\n");
-	free(stash.a.stack);
-	free(stash.b.stack);
-	free (stash.b.moves);
-	free (stash.a.moves);
+	ft_index(stash.a);
+	push_swap(&stash);
+	// ft_print_stack(stash);
+	ft_free_all(&stash);
 	return (0);
 }

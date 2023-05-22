@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:50:46 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 16:06:34 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:47:17 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	ft_malloc_all(t_stash *stash, int argc)
 	stash->b.stack = (int *)ft_calloc(sizeof(int), (argc - 1));
 	stash->b.moves = (int *)ft_calloc(sizeof(int), (argc - 1));
 	stash->a.moves = (int *)ft_calloc(sizeof(int), (argc - 1));
+	stash->b.base.result = (int *)ft_calloc(sizeof(int), (argc - 1));
 }
 
 int	main(int argc, char **argv)

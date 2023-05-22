@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:06:48 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:28:06 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:59:49 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ void	ft_calc_moviment(t_stash *stash)
 		if (i > stash->b.len / 2)
 			stash->b.moves[i] = (stash->b.len - \
 			i) * -1;
-		stash->a.moves[i] = stash->b.base.result;
-		if (stash->b.base.result > stash->a.len / 2)
+		stash->a.moves[i] = stash->b.base.result[i];
+		if (stash->b.base.result[i] > stash->a.len / 2)
 			stash->a.moves[i] = (stash->a.len - \
-			stash->b.base.result) * -1;
+			stash->b.base.result[i]) * -1;
 		i++;
 	}
 }
 
-int	ft_sort_a(t_stash *stash)
+int	ft_sort_a(t_stash *stash, int index)
 {
 	int	pos_a;
 	int	i;
@@ -59,7 +59,7 @@ int	ft_sort_a(t_stash *stash)
 	max = INT_MAX;
 	while (i < stash->a.len)
 	{
-		if (stash->a.stack[i] > stash->b.stack[0] && stash->a.stack[i] < \
+		if (stash->a.stack[i] > index && stash->a.stack[i] < \
 		max)
 		{
 			max = stash->a.stack[i];
@@ -77,8 +77,11 @@ void	ft_fit_a(t_stash *stash)
 
 	pos_a = 0;
 	i = 0;
-	if (stash->b.len > 0)
-		stash->b.base.result = ft_sort_a(stash);
+	while (stash->b.len > i)
+	{
+		stash->b.base.result[i] = ft_sort_a(stash, stash->b.stack[i]);
+		i++;
+	}
 }
 
 void	ft_send_half(t_stash *half)

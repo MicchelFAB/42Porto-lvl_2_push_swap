@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 09:10:45 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/16 09:47:27 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:11:08 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_index(t_stack stack)
 	while (stack.base.i < stack.len)
 	{
 		stack.base.j = ft_find_min_pos_if(stack, stack.base.i);
-		tmp[stack.base.j] = stack.base.i;
+		tmp[stack.base.j] = stack.base.i + 1;
 		stack.base.i++;
 	}
 	stack.base.i = 0;

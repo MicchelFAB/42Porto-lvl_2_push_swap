@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:06:48 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 15:59:17 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:28:06 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,17 @@ int	ft_sort_a(t_stash *stash)
 {
 	int	pos_a;
 	int	i;
+	int	max;
 
 	pos_a = 0;
 	i = 0;
-	stash->b.base.max = INT_MAX;
+	max = INT_MAX;
 	while (i < stash->a.len)
 	{
 		if (stash->a.stack[i] > stash->b.stack[0] && stash->a.stack[i] < \
-		stash->b.base.max)
+		max)
 		{
-			stash->b.base.max = stash->a.stack[i];
+			max = stash->a.stack[i];
 			pos_a = i;
 		}
 		i++;

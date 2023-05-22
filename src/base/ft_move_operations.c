@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:52:16 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 16:03:58 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:57:02 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,80 +16,80 @@ void	less_moves_sort(t_stash *stash)
 {
 	int	less_moves;
 	int	j;
+	int	mv_a;
+	int	mv_b;
 
 	less_moves = INT_MAX;
 	j = 0;
 	while (j < stash->b.len)
 	{
-		if (absolute(stash->a.moves[0]) + \
-		absolute(stash->b.moves[j]) < absolute(less_moves))
+		if (absolute(stash->a.moves[j]) + absolute(stash->b.moves[j]) < absolute(less_moves))
 		{
-			less_moves = absolute(stash->a.moves[0]) + \
-			absolute(stash->b.moves[j]);
-			stash->a.base.result = stash->a.moves[0];
-			stash->b.base.result = stash->b.moves[j];
+			less_moves = absolute(stash->a.moves[0]) + absolute(stash->b.moves[j]);
+			mv_a = stash->a.moves[j];
+			mv_b = stash->b.moves[j];
 		}
 		j++;
 	}
-	if (stash->a.base.result < 0 && stash->b.base.result < 0)
-		reverse_both(stash);
-	else if (stash->a.base.result > 0 && stash->b.base.result > 0)
-		rotate_both(stash);
-	rotate_a(stash);
-	rotate_b(stash);
+	if (mv_a < 0 && mv_a < 0)
+		reverse_both(stash, &mv_a, &mv_b);
+	else if (mv_a > 0 && mv_a > 0)
+		rotate_both(stash, &mv_a, &mv_b);
+	rotate_a(stash, &mv_a);
+	rotate_b(stash, &mv_b);
 	ft_pa(stash);
 }
 
-void	reverse_both(t_stash *stash)
+void	reverse_both(t_stash *stash, int *mv_a, int *mv_b)
 {
-	while (stash->a.base.result < 0 && stash->b.base.result < 0)
+	while (*mv_a < 0 && *mv_b < 0)
 	{
-		(stash->a.base.result)++;
-		(stash->b.base.result)++;
+		(*mv_a)++;
+		(*mv_b)++;
 		ft_rrr(*stash);
 	}
 }
 
-void	rotate_both(t_stash *stash)
+void	rotate_both(t_stash *stash, int *mv_a, int *mv_b)
 {
-	while (stash->a.base.result > 0 && stash->b.base.result > 0)
+	while (*mv_a > 0 && *mv_b > 0)
 	{
-		(stash->a.base.result)--;
-		(stash->b.base.result)--;
+		(*mv_a)--;
+		(*mv_b)--;
 		ft_rr(*stash);
 	}
 }
 
-void	rotate_a(t_stash *stash)
+void	rotate_a(t_stash *stash, int *mv_a)
 {
-	while (stash->a.base.result)
+	while (*mv_a)
 	{
-		if (stash->a.base.result > 0)
+		if (*mv_a > 0)
 		{
 			ft_ra(*stash);
-			(stash->a.base.result)--;
+			(*mv_a)--;
 		}
-		else if (stash->a.base.result < 0)
+		else if (*mv_a < 0)
 		{
 			ft_rra(*stash);
-			(stash->a.base.result)++;
+			(*mv_a)++;
 		}
 	}
 }
 
-void	rotate_b(t_stash *stash)
+void	rotate_b(t_stash *stash, int *mv_b)
 {
-	while (stash->b.base.result)
+	while (*mv_b)
 	{
-		if (stash->b.base.result > 0)
+		if (*mv_b > 0)
 		{
 			ft_rb(*stash);
-			(stash->b.base.result)--;
+			(*mv_b)--;
 		}
-		else if (stash->b.base.result < 0)
+		else if (*mv_b < 0)
 		{
 			ft_rrb(*stash);
-			(stash->b.base.result)++;
+			(*mv_b)++;
 		}
 	}
 }

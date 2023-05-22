@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 16:01:27 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:59:02 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_base
 	int	last;
 	int	j;
 	int	i;
+	int	mv_a;
+	int	mv_b;
 }t_base;
 
 typedef struct s_stack
@@ -104,10 +106,10 @@ void			push_swap(t_stash *stash);
 
 // function that sort the stack
 void			less_moves_sort(t_stash *stash);
-void			reverse_both(t_stash *stash);
-void			rotate_both(t_stash *stash);
-void			rotate_a(t_stash *stash);
-void			rotate_b(t_stash *stash);
+void			reverse_both(t_stash *stash, int *mv_a, int *mv_b);
+void			rotate_both(t_stash *stash, int *mv_a, int *mv_b);
+void			rotate_a(t_stash *stash, int *mv_a);
+void			rotate_b(t_stash *stash, int *mv_b);
 void	ft_fit_a(t_stash *stash);
 void	ft_calc_moviment(t_stash *stash);
 void	last_rotates(t_stash *stash);

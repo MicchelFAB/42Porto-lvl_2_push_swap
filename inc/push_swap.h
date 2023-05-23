@@ -6,7 +6,11 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:43:18 by mamaral-          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/22 18:45:38 by mamaral-         ###   ########.fr       */
+=======
+/*   Updated: 2023/05/23 16:08:25 by mamaral-         ###   ########.fr       */
+>>>>>>> 0b1ba5a (Again 2)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +37,7 @@ typedef struct s_base
 	int	last;
 	int	j;
 	int	i;
+	int	*pos;
 	int	mv_a;
 	int	mv_b;
 }t_base;
@@ -49,6 +54,7 @@ typedef struct s_stash
 {
 	t_stack	a;
 	t_stack	b;
+	int		tmp;
 }t_stash;
 
 // function that execute rotation of the stack

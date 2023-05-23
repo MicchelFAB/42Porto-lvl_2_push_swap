@@ -1,3 +1,22 @@
+
+GREY		:= \e[1;30m
+RED			:= \e[1;31m
+GREEN		:= \e[1;32m
+YELLOW		:= \e[1;33m
+BLUE		:= \e[1;34m
+MAGENTA		:= \e[1;35m
+CYAN		:= \e[1;36m
+WHITE		:= \e[1;37m
+
+BOLD		:= \e[1m
+DIM			:= \e[2m	
+UNDERLINE	:= \e[4m
+BLINK		:= \e[5m
+INVERTED	:= \e[7m
+END			:= \e[0m
+
+
+
 NAME 		:= push_swap
 
 SRC_DIR 	:= src
@@ -40,25 +59,27 @@ DIR_DUP	 = mkdir -p $(@D)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $(NAME) $(OBJS)
-	$(info Generated $(NAME))
+	@printf "\e[2K\r $(YELLOW)Compiling $(NAME)$(END)\n"
+	@$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	@printf "\e[2K\r $(GREEN)Generated $(NAME)$(END)\n"
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
-	$(info Generated $@)
+	@$(DIR_DUP)
+	@printf "\e[2K\r $(YELLOW)Compiling $< $(END)"
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
 -include $(DEPS)
 
 clean:
-	$(RM) $(OBJS) $(DEPS) $(BUILD_DIR)
+	@printf "\e[2K\r $(RED)Cleaning objects from $(NAME)$(END)\n"
+	@$(RM) $(OBJS) $(DEPS) $(BUILD_DIR)
 
 fclean: clean
-	$(RM) $(NAME) $(DEBUG)
+	@printf "\e[2K\r $(RED)Cleaning executable from $(NAME)$(END)\n"
+	@$(RM) $(NAME) $(DEBUG)
 
 re:
-	$(MAKE) fclean
-	$(MAKE) all
+	@$(MAKE) fclean
+	@$(MAKE) all
 
-.PHONY: clean fclean re
-.SILENT:
+.PHONY: clean fclean re all

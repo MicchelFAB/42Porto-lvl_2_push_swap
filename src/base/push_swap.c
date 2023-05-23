@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 16:50:46 by mamaral-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/05/22 19:26:07 by mamaral-         ###   ########.fr       */
-=======
-/*   Updated: 2023/05/23 16:21:35 by mamaral-         ###   ########.fr       */
->>>>>>> 0b1ba5a (Again 2)
+/*   Created: 2023/05/23 16:54:34 by mamaral-          #+#    #+#             */
+/*   Updated: 2023/05/23 18:09:12 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +57,7 @@ void	ft_malloc_all(t_stash *stash, int argc)
 	stash->a.stack = (int *)ft_calloc(sizeof(int), (argc - 1));
 	stash->b.stack = (int *)ft_calloc(sizeof(int), (argc - 1));
 	stash->b.moves = (int *)ft_calloc(sizeof(int), (argc - 1));
+	ft_memset(stash->b.moves, -1, (argc - 1));
 	stash->a.moves = (int *)ft_calloc(sizeof(int), (argc - 1));
 	stash->b.base.result = (int *)ft_calloc(sizeof(int), (argc - 1));
 }

@@ -5,14 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 19:06:48 by mamaral-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/05/22 18:59:49 by mamaral-         ###   ########.fr       */
-=======
-/*   Updated: 2023/05/23 16:20:44 by mamaral-         ###   ########.fr       */
->>>>>>> 0b1ba5a (Again 2)
+/*   Created: 2023/05/23 16:52:42 by mamaral-          #+#    #+#             */
+/*   Updated: 2023/05/23 17:29:19 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../../inc/push_swap.h"
 
@@ -42,40 +39,24 @@ void	ft_calc_moviment(t_stash *stash)
 	{
 		stash->b.moves[i] = i;
 		if (i > stash->b.len / 2)
-<<<<<<< HEAD
-			stash->b.moves[i] = (stash->b.len - \
-			i) * -1;
-		stash->a.moves[i] = stash->b.base.result[i];
-		if (stash->b.base.result[i] > stash->a.len / 2)
-			stash->a.moves[i] = (stash->a.len - \
-			stash->b.base.result[i]) * -1;
-=======
 			stash->b.moves[i] = (stash->b.len - i) * -1;
 		stash->a.moves[i] = stash->b.base.result[i];
 		if (stash->b.base.result[i] > stash->a.len / 2)
 			stash->a.moves[i] = (stash->a.len - stash->b.base.result[i]) * -1;
->>>>>>> 0b1ba5a (Again 2)
+
 		i++;
 	}
 }
 
-<<<<<<< HEAD
-int	ft_sort_a(t_stash *stash, int index)
-=======
 int	ft_sort_a(t_stash *stash, int b_num, int pos_a)
->>>>>>> 0b1ba5a (Again 2)
+
 {
 	stash->tmp = 0;
 	stash->b.base.max = INT_MAX;
 	while (stash->tmp < stash->a.len)
 	{
-<<<<<<< HEAD
-		if (stash->a.stack[i] > index && stash->a.stack[i] < \
-		max)
-=======
 		if (stash->a.stack[stash->tmp] > b_num && stash->a.stack[stash->tmp] < \
 		stash->b.base.max)
->>>>>>> 0b1ba5a (Again 2)
 		{
 			stash->b.base.max = stash->a.stack[stash->tmp];
 			pos_a = stash->tmp;
@@ -87,7 +68,7 @@ int	ft_sort_a(t_stash *stash, int b_num, int pos_a)
 	stash->tmp = 0;
 	while (stash->tmp <= stash->a.len)
 	{
-		if (stash->a.stack[stash->tmp] < b_num)
+		if (stash->a.stack[stash->tmp] < stash->b.base.max)
 		{
 			stash->b.base.max = stash->a.stack[stash->tmp];
 			pos_a = stash->tmp;
@@ -103,17 +84,11 @@ void	ft_fit_a(t_stash *stash)
 	int	i;
 
 	i = 0;
-<<<<<<< HEAD
-	while (stash->b.len > i)
-	{
-		stash->b.base.result[i] = ft_sort_a(stash, stash->b.stack[i]);
-=======
 	pos_a = 0;
 	while (stash->b.len >= i)
 	{
 		pos_a = ft_sort_a(stash, stash->b.stack[i], pos_a);
 		stash->b.base.result[i] = pos_a;
->>>>>>> 0b1ba5a (Again 2)
 		i++;
 	}
 }

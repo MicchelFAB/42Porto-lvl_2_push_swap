@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:52:42 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/23 17:29:19 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:03:05 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_calc_moviment(t_stash *stash)
 		stash->a.moves[i] = stash->b.base.result[i];
 		if (stash->b.base.result[i] > stash->a.len / 2)
 			stash->a.moves[i] = (stash->a.len - stash->b.base.result[i]) * -1;
-
 		i++;
 	}
 }

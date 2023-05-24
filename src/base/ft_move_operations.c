@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:52:16 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:50:59 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:56:41 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	less_moves_sort(t_stash *stash)
 	j = 0;
 	while (j < stash->b.len)
 	{
-		if (absolute(stash->a.moves[j]) + absolute(stash->b.moves[0]) < absolute(less_moves))
+		if (absolute(stash->a.moves[j]) + absolute(stash->b.moves[j]) < absolute(less_moves))
 		{
-			less_moves = absolute(stash->a.moves[0]) + absolute(stash->b.moves[0]);
+			less_moves = absolute(stash->a.moves[j]) + absolute(stash->b.moves[j]);
 			mv_a = stash->a.moves[j];
 			mv_b = stash->b.moves[j];
 		}

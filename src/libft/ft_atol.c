@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 09:40:39 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/24 17:22:00 by mamaral-         ###   ########.fr       */
+/*   Created: 2023/05/24 14:53:16 by mamaral-          #+#    #+#             */
+/*   Updated: 2023/05/24 17:22:54 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../inc/libft.h"
 
-void	ft_sa(t_stash a)
+long long int	ft_atol(const char *nptr)
 {
-	ft_swap(&a.a.stack[0], &a.a.stack[1]);
-	ft_putstr_fd("sa\n", 1);
-}
+	long long int	res;
+	int				sinal;
 
-void	ft_sb(t_stash b)
-{
-	ft_swap(&b.b.stack[0], &b.b.stack[1]);
-	ft_putstr_fd("sb\n", 1);
-}
-
-void	ft_ss(t_stash ab)
-{
-	ft_swap(&ab.a.stack[0], &ab.a.stack[1]);
-	ft_swap(&ab.b.stack[0], &ab.b.stack[1]);
-	ft_putstr_fd("ss\n", 1);
+	res = 0;
+	sinal = 1;
+	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	if (*nptr == '-')
+		sinal *= -1;
+	if (*nptr == '-' || *nptr == '+')
+		nptr++;
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		res = res * 10 + *nptr - '0';
+		nptr++;
+	}
+	return (res * sinal);
 }

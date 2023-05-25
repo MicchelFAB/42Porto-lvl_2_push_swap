@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:24:51 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/17 17:42:40 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:21:30 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	ft_all_good(const int argc, char **argv)
 	{
 		if (!ft_check_is_int(argv[i]))
 			return (0);
+		if (!ft_integer_limits(argv[i]))
+			return (0);
 		i++;
 	}
 	if (!ft_check_double(argc, argv))
-		return (0);
-	if (!ft_integer_limits(*argv))
 		return (0);
 	return (1);
 }

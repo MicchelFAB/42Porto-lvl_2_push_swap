@@ -6,32 +6,11 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:57 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 16:01:03 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:35:08 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
-
-long long int	ft_atol(const char *nptr)
-{
-	long long int	res;
-	int				sinal;
-
-	res = 0;
-	sinal = 1;
-	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-')
-		sinal *= -1;
-	if (*nptr == '-' || *nptr == '+')
-		nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		res = res * 10 + *nptr - '0';
-		nptr++;
-	}
-	return (res * sinal);
-}
 
 void	ft_exit_error(void)
 {
@@ -39,26 +18,26 @@ void	ft_exit_error(void)
 	exit(1);
 }
 
-void	ft_print_stack(t_stash stash)
+void	ft_print_stack(t_stack stacka, t_stack stackb)
 {
-	stash.a.base.i = 0;
-	while (stash.a.base.i < stash.a.len || stash.a.base.i < stash.b.len)
+	stacka.base.i = 0;
+	while (stacka.base.i < stacka.len || stacka.base.i < stackb.len)
 	{
-		if (stash.a.base.i < stash.a.len)
-			ft_printf("%d ", stash.a.stack[stash.a.base.i]);
+		if (stacka.base.i < stacka.len)
+			ft_printf("%d ", stacka.stack[stacka.base.i]);
 		else
 			ft_printf("  ");
-		if (stash.a.base.i < stash.b.len)
-			ft_printf(" %d", stash.b.stack[stash.a.base.i]);
+		if (stacka.base.i < stackb.len)
+			ft_printf(" %d", stackb.stack[stacka.base.i]);
 		else
 			ft_printf("  ");
 		ft_printf("\n");
-		stash.a.base.i++;
+		stacka.base.i++;
 	}
 	ft_printf("_  _\na  b\n");
 }
 
-int	absolute(int n)
+int	ft_absolute(int n)
 {
 	if (n < 0)
 		return (-n);
@@ -67,8 +46,22 @@ int	absolute(int n)
 
 void	ft_free_all(t_stash *stash)
 {
+	free(stash->base.result);
+	free(stash->a.base.tmp);
+	free(stash->a.base.tpm);
 	free(stash->a.stack);
 	free(stash->b.stack);
 	free(stash->a.moves);
 	free(stash->b.moves);
+}
+
+void	ft_malloc_all(t_stash *stash, int argc)
+{
+	stash->a.stack = (int *)ft_calloc(sizeof(int), (argc - 1));
+	stash->b.stack = (int *)ft_calloc(sizeof(int), (argc - 1));
+	stash->b.moves = (int *)ft_calloc(sizeof(int), (argc - 1));
+	stash->a.moves = (int *)ft_calloc(sizeof(int), (argc - 1));
+	stash->base.result = (int *)ft_calloc(sizeof(int), (argc - 1));
+	stash->a.base.tmp = (int *)ft_calloc(sizeof(int), (argc - 1));
+	stash->a.base.tpm = (int *)ft_calloc(sizeof(int), (argc - 1));
 }

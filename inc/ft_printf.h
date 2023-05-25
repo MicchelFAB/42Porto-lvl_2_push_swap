@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:42:05 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/22 14:59:19 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:10:31 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
-# include "get_next_line.h"
-# include "libft.h"
 
 int	ft_printf(const char *fmt, ...);
 int	ft_putcharpf(char c);

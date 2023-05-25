@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_check.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 09:40:39 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/24 17:22:00 by mamaral-         ###   ########.fr       */
+/*   Created: 2021/11/19 10:40:11 by athekkep          #+#    #+#             */
+/*   Updated: 2023/05/24 23:02:27 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#ifndef FT_CHECK_H
+# define FT_CHECK_H	
 
-void	ft_sa(t_stash a)
-{
-	ft_swap(&a.a.stack[0], &a.a.stack[1]);
-	ft_putstr_fd("sa\n", 1);
-}
+# include "push_swap.h"
 
-void	ft_sb(t_stash b)
-{
-	ft_swap(&b.b.stack[0], &b.b.stack[1]);
-	ft_putstr_fd("sb\n", 1);
-}
+int		ft_checker(t_stack s, char c);
+void	ft_do_operation(t_check *instruct, char *ln, int i);
+void	ft_send_moves(char *ln, t_check *instruct);
+void	ft_process_moves(t_check *inst);
 
-void	ft_ss(t_stash ab)
-{
-	ft_swap(&ab.a.stack[0], &ab.a.stack[1]);
-	ft_swap(&ab.b.stack[0], &ab.b.stack[1]);
-	ft_putstr_fd("ss\n", 1);
-}
+#endif

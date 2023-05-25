@@ -6,90 +6,90 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:52:16 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/24 11:56:41 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:36:40 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	less_moves_sort(t_stash *stash)
+void	ft_less_movement(t_stash *stash)
 {
 	int	less_moves;
-	int	j;
-	int	mv_a;
-	int	mv_b;
 
 	less_moves = INT_MAX;
-	j = 0;
-	while (j < stash->b.len)
+	stash->base.i = 0;
+	while (stash->base.i < stash->b.len)
 	{
-		if (absolute(stash->a.moves[j]) + absolute(stash->b.moves[j]) < absolute(less_moves))
+		if (ft_absolute(stash->a.moves[stash->base.i])
+			+ ft_absolute(stash->b.moves[stash->base.i])
+			< ft_absolute(less_moves))
 		{
-			less_moves = absolute(stash->a.moves[j]) + absolute(stash->b.moves[j]);
-			mv_a = stash->a.moves[j];
-			mv_b = stash->b.moves[j];
+			less_moves = ft_absolute(stash->a.moves[stash->base.i])
+				+ ft_absolute(stash->b.moves[stash->base.i]);
+			stash->a.base.mv_a = stash->a.moves[stash->base.i];
+			stash->a.base.mv_b = stash->b.moves[stash->base.i];
 		}
-		j++;
+		stash->base.i++;
 	}
-	if (mv_a < 0 && mv_a < 0)
-		reverse_both(stash, &mv_a, &mv_b);
-	else if (mv_a > 0 && mv_a > 0)
-		rotate_both(stash, &mv_a, &mv_b);
-	rotate_a(stash, &mv_a);
-	rotate_b(stash, &mv_b);
+	if (stash->a.base.mv_a < 0 && stash->a.base.mv_a < 0)
+		ft_rrr_move(stash);
+	else if (stash->a.base.mv_a > 0 && stash->a.base.mv_a > 0)
+		ft_rr_move(stash);
+	ft_ra_rra(stash);
+	ft_rb_rrb(stash);
 	ft_pa(stash);
 }
 
-void	reverse_both(t_stash *stash, int *mv_a, int *mv_b)
+void	ft_rrr_move(t_stash *stash)
 {
-	while (*mv_a < 0 && *mv_b < 0)
+	while (stash->a.base.mv_a < 0 && stash->a.base.mv_b < 0)
 	{
-		(*mv_a)++;
-		(*mv_b)++;
+		(stash->a.base.mv_a)++;
+		(stash->a.base.mv_b)++;
 		ft_rrr(*stash);
 	}
 }
 
-void	rotate_both(t_stash *stash, int *mv_a, int *mv_b)
+void	ft_rr_move(t_stash *stash)
 {
-	while (*mv_a > 0 && *mv_b > 0)
+	while (stash->a.base.mv_a > 0 && stash->a.base.mv_b > 0)
 	{
-		(*mv_a)--;
-		(*mv_b)--;
+		(stash->a.base.mv_a)--;
+		(stash->a.base.mv_b)--;
 		ft_rr(*stash);
 	}
 }
 
-void	rotate_a(t_stash *stash, int *mv_a)
+void	ft_ra_rra(t_stash *stash)
 {
-	while (*mv_a)
+	while (stash->a.base.mv_a)
 	{
-		if (*mv_a > 0)
+		if (stash->a.base.mv_a > 0)
 		{
 			ft_ra(*stash);
-			(*mv_a)--;
+			(stash->a.base.mv_a)--;
 		}
-		else if (*mv_a < 0)
+		else if (stash->a.base.mv_a < 0)
 		{
 			ft_rra(*stash);
-			(*mv_a)++;
+			(stash->a.base.mv_a)++;
 		}
 	}
 }
 
-void	rotate_b(t_stash *stash, int *mv_b)
+void	ft_rb_rrb(t_stash *stash)
 {
-	while (*mv_b)
+	while (stash->a.base.mv_b)
 	{
-		if (*mv_b > 0)
+		if (stash->a.base.mv_b > 0)
 		{
 			ft_rb(*stash);
-			(*mv_b)--;
+			(stash->a.base.mv_b)--;
 		}
-		else if (*mv_b < 0)
+		else if (stash->a.base.mv_b < 0)
 		{
 			ft_rrb(*stash);
-			(*mv_b)++;
+			(stash->a.base.mv_b)++;
 		}
 	}
 }

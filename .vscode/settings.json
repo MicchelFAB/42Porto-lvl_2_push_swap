@@ -35,11 +35,35 @@
     "**/.vscode/**"
   ],
   "C_Cpp_Runner.useAddressSanitizer": false,
-"C_Cpp_Runner.showCompilationTime": false,
-"files.associations": {
+  "C_Cpp_Runner.showCompilationTime": false,
+  "files.associations": {
 	"*.tcc": "c",
 	"fstream": "c",
 	"sstream": "c",
-	"streambuf": "c"
+	"streambuf": "c",
+	"stdlib.h": "c",
+	"push_swap.h": "c",
+	"array": "c",
+	"concepts": "c",
+	"deque": "c",
+	"list": "c",
+	"string": "c",
+	"unordered_map": "c",
+	"vector": "c",
+	"memory": "c",
+	"optional": "c",
+	"string_view": "c",
+	"future": "c",
+	"istream": "c",
+	"ostream": "c",
+	"stop_token": "c",
+	"thread": "c",
+	"functional": "c",
+	"regex": "c",
+	"tuple": "c",
+	"type_traits": "c",
+	"utility": "c",
+	"variant": "c",
+	"random": "c"
 }
 }

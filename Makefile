@@ -1,4 +1,3 @@
-
 GREY		:= \e[1;30m
 RED			:= \e[1;31m
 GREEN		:= \e[1;32m
@@ -15,68 +14,69 @@ BLINK		:= \e[5m
 INVERTED	:= \e[7m
 END			:= \e[0m
 
+NAME		:= push_swap
+NAME_B		:= checker
 
-
-NAME 		:= push_swap
-
-SRC_DIR 	:= src
-SRCS 		:= base/utils.c base/ft_push.c base/ft_check_stack.c base/ft_reverse_rotate.c \
-				base/ft_rotate.c base/ft_swap.c base/ft_min.c base/ft_sort3.c base/ft_index.c \
-				base/ft_big_numbers.c base/ft_move_operations.c base/push_swap.c \
-				libft/ft_arrlen.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \
-				libft/ft_intlen.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
-				libft/ft_isdigit.c libft/ft_isprint.c libft/ft_isspace.c libft/ft_itoa.c \
-				libft/ft_lstadd_back.c libft/ft_lstadd_front.c libft/ft_lstclear.c \
-				libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstlast.c libft/ft_lstmap.c \
-				libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_memchr.c libft/ft_memcmp.c \
-				libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_printf.c \
-				libft/ft_putchar_fd.c libft/ft_putcharpf.c libft/ft_putendl_fd.c \
-				libft/ft_puthexpf.c libft/ft_putnbr_fd.c libft/ft_putnbrpf.c libft/ft_putptrpf.c \
-				libft/ft_putstr_fd.c libft/ft_putstrpf.c libft/ft_putunbrpf.c libft/ft_split.c \
-				libft/ft_strchr.c libft/ft_strdup.c libft/ft_strjoin.c libft/ft_strlcat.c \
-				libft/ft_strlcpy.c libft/ft_strlen.c libft/ft_strmapi.c libft/ft_strncmp.c \
-				libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strtrim.c libft/ft_substr.c \
-				libft/ft_tolower.c libft/ft_toupper.c libft/get_next_line.c \
-				libft/get_next_line_utils.c libft/ft_swap.c
+SRC_DIR		:= src/base
+SRC_LIB		:= src/libft
+SRCS		:= utils.c ft_push.c ft_check_stack.c ft_reverse_rotate.c \
+				ft_rotate.c ft_swap.c ft_index.c ft_big_numbers.c \
+				ft_move_operations.c 
+SRCS_P		:= push_swap.c
+SRCS_B		:= ft_checker.c 
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
+SRCS_P		:= $(SRCS_P:%=$(SRC_DIR)/%)
+SRCS_B		:= $(SRCS_B:%=$(SRC_DIR)/%)
 
-BUILD_DIR   := .build
-OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+BUILD_DIR	:= .build
+OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/obj/%.o)
+OBJS_B		:= $(SRCS_B:$(SRC_DIR)/%.c=$(BUILD_DIR)/obj/%.o)
+OBJS_P		:= $(SRCS_P:$(SRC_DIR)/%.c=$(BUILD_DIR)/obj/%.o)
 DEPS		:= $(OBJS:.o=.d)
-DEBUG		:= *.txt *.out
 
-CC 			:= cc
-CFLAGS 		:= -Wall -Wextra -Werror -g 
+CC			:= cc
+CFLAGS		:= -Wall -Wextra -Werror -g
 CPPFLAGS	:= -MMD -MP -I include
-AR			:= ar
-ARFLAGS		:= -r -c -s
 
 RM			:= rm -rf
-MAKEFLAGS   += --no-print-directory
-DIR_DUP	 = mkdir -p $(@D)
+MAKEFLAGS	+= --no-print-directory
+MKDIR_P		:= mkdir -p
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@printf "\e[2K\r $(YELLOW)Compiling $(NAME)$(END)\n"
-	@$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@printf "\e[2K\r $(GREEN)Generated $(NAME)$(END)\n"
+$(NAME): $(OBJS) $(OBJS_P) $(BUILD_DIR)/libft/libft.a
+	@printf "\e[2K\r$(GREEN)Generated $(NAME)$(END)\n"
+	@$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) $(OBJS_P) -L$(BUILD_DIR)/libft -lft -o $(NAME)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	@$(DIR_DUP)
-	@printf "\e[2K\r $(YELLOW)Compiling $< $(END)"
+$(BUILD_DIR)/libft/libft.a:
+	@make -C $(SRC_LIB)
+	@cp $(SRC_LIB)/libft.a $(BUILD_DIR)/libft/libft.a
+
+$(BUILD_DIR)/obj/%.o: $(SRC_DIR)/%.c $(BUILD_DIR)
+	@printf "\e[2K\r$(YELLOW)Compiling $<$(END)"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
 -include $(DEPS)
 
+$(BUILD_DIR):
+	@$(MKDIR_P) $(BUILD_DIR)/libft $(BUILD_DIR)/obj
+
+bonus: $(NAME_B)
+
+$(NAME_B): $(OBJS) $(OBJS_B) $(BUILD_DIR)/libft/libft.a
+	@printf "\e[2K\r$(BLUE)Generated $(NAME_B)$(END)\n"
+	@$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) $(OBJS_B) -L$(BUILD_DIR)/libft -lft -o $(NAME_B)
+
 clean:
-	@printf "\e[2K\r $(RED)Cleaning objects from $(NAME)$(END)\n"
+	@printf "\e[2K\r$(RED)Cleaning objects from $(NAME)$(END)\n"
+	@make -C $(SRC_LIB) clean
 	@$(RM) $(OBJS) $(DEPS) $(BUILD_DIR)
 
 fclean: clean
-	@printf "\e[2K\r $(RED)Cleaning executable from $(NAME)$(END)\n"
-	@$(RM) $(NAME) $(DEBUG)
+	@printf "\e[2K\r$(RED)Cleaning executables from $(NAME)$(END)\n"
+	@make -C $(SRC_LIB) fclean
+	@$(RM) $(NAME) $(NAME_B)
 
 re:
 	@$(MAKE) fclean

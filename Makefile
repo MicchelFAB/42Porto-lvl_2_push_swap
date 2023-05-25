@@ -21,7 +21,7 @@ SRC_DIR		:= src/base
 SRC_LIB		:= src/libft
 SRCS		:= utils.c ft_push.c ft_check_stack.c ft_reverse_rotate.c \
 				ft_rotate.c ft_swap.c ft_index.c ft_big_numbers.c \
-				ft_move_operations.c 
+				ft_less_movement.c 
 SRCS_P		:= push_swap.c
 SRCS_B		:= ft_checker.c 
 

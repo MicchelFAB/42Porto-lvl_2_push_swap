@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move_operations.c                               :+:      :+:    :+:   */
+/*   ft_less_movement.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,6 +11,12 @@
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
+
+/* ft_less_movement() this function will compare the moves of the stack a	*
+ * and stack b and will choose the one that was less moves to be put on the	*
+ * stack a. after that will save the value of the moves to be used on the 	*
+ * ft_rrr_move(), ft_rr_move(), ft_ra_rra() and ft_rb_rrb() functions, and 	*
+ * then call the ft_pa() function to put the value on the stack a.			*/
 
 void	ft_less_movement(t_stash *stash)
 {
@@ -40,6 +46,9 @@ void	ft_less_movement(t_stash *stash)
 	ft_pa(stash);
 }
 
+/* ft_rrr_move() this function will execute the reverse rotation of	*
+the stack a and b while the value of the both moves is less than 0	*/
+
 void	ft_rrr_move(t_stash *stash)
 {
 	while (stash->a.base.mv_a < 0 && stash->a.base.mv_b < 0)
@@ -50,6 +59,9 @@ void	ft_rrr_move(t_stash *stash)
 	}
 }
 
+/* ft_rr_move() this function will execute the rotation of the stack a	*
+ * and b while the value of the both moves is higher than 0				*/
+
 void	ft_rr_move(t_stash *stash)
 {
 	while (stash->a.base.mv_a > 0 && stash->a.base.mv_b > 0)
@@ -59,6 +71,10 @@ void	ft_rr_move(t_stash *stash)
 		ft_rr(*stash);
 	}
 }
+
+/* ft_ra_rra() this function will execute the rotation of the stack a	*
+ * while the value of the move a is higher than 0 and the reverse 		*
+ * rotation of the stack a while the value of the move a is less than 0	*/
 
 void	ft_ra_rra(t_stash *stash)
 {
@@ -76,6 +92,10 @@ void	ft_ra_rra(t_stash *stash)
 		}
 	}
 }
+
+/* ft_rb_rrb() this function will execute the rotation of the stack b	*
+ * while the value of the move b is higher than 0 and the reverse 		*
+ * rotation of the stack b while the value of the move b is less than 0	*/
 
 void	ft_rb_rrb(t_stash *stash)
 {

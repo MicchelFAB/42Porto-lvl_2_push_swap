@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 23:15:20 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/25 12:16:57 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:40:24 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,13 @@ void	ft_index(t_stash stash)
 		stash.a.stack[stash.a.base.i] = stash.a.base.tpm[stash.a.base.i];
 		stash.a.base.i++;
 	}
+}
+
+/* ft_absolute() is used to find the absolute value of a number.			*/
+
+int	ft_absolute(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
 }

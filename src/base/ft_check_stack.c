@@ -6,11 +6,14 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:24:51 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/24 17:21:30 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:58:51 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
+
+/* ft_all_good() call all check functions to check if the arguments	*
+ * are valid. if they are valid will return 1, else will return 0.	*/
 
 int	ft_all_good(const int argc, char **argv)
 {
@@ -29,6 +32,11 @@ int	ft_all_good(const int argc, char **argv)
 		return (0);
 	return (1);
 }
+
+/* ft_check_double() this function will check if there is any double	*
+ * number on the arguments. if there is any double number will call		*
+ * the ft_exit_error() function, and exit the program. if there is no	*
+ * double number will return 1.											*/
 
 int	ft_check_double(const int argc, char **argv)
 {
@@ -54,6 +62,12 @@ int	ft_check_double(const int argc, char **argv)
 	return (1);
 }
 
+/* ft_integer_limits() this function will check if the arguments are	*
+ * within the integer limits. the arguments are higher than INT_MAX		*
+ * or lower than INT_MIN will call the ft_exit_error() function, and	*
+ * exit the program. if the arguments are within the integer limits		*
+ * will return 1.														*/
+
 int	ft_integer_limits(const char *arg)
 {
 	long long	num;
@@ -63,6 +77,10 @@ int	ft_integer_limits(const char *arg)
 		ft_exit_error();
 	return (1);
 }
+
+/* ft_check_is_int() this function will check if the arguments are		*
+ * only numbers. if the arguments have any character that is not a		*
+ * number will call the ft_exit_error() function, and exit the program.	*/
 
 int	ft_check_is_int(const char *arg)
 {

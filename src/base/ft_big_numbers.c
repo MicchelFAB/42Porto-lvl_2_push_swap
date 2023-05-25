@@ -6,11 +6,16 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:52:42 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/25 12:26:11 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:54:04 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
+
+/* ft_last_rotates() rotates stack a to the last position of the	*
+ * lowest value. If the lowest value is in the first half of the	*
+ * stack, it rotates to the top, if it is in the second half, it	*
+ * rotates to the bottom.											*/
 
 void	ft_last_rotates(t_stash *stash)
 {
@@ -29,6 +34,11 @@ void	ft_last_rotates(t_stash *stash)
 	}
 }
 
+/* ft_compute_moves() computes the moves needed to sort stack b. It	*
+ * does this by comparing the values of	stack b to all values of 	*
+ * stack a and stores the position of the value that is closest to	*
+ * the value of stack b.											*/
+
 void	ft_compute_moves(t_stash *stash)
 {	
 	stash->base.i = 0;
@@ -44,6 +54,10 @@ void	ft_compute_moves(t_stash *stash)
 		stash->base.i++;
 	}
 }
+
+/* ft_compare_a() compares the values of stack b sent to all values	*
+ * of stack a and returns the position of the value that is closest	*
+ * to the value of stack b.											*/
 
 int	ft_compare_a(t_stash *stash, int b_val, int pos_a)
 
@@ -75,6 +89,9 @@ int	ft_compare_a(t_stash *stash, int b_val, int pos_a)
 	return (pos_a);
 }
 
+/* ft_fit_a() compares the values of stack b with stack a and stores 	*
+ * the position of the value in stack a in the result array.			*/
+
 void	ft_fit_a(t_stash *stash)
 {
 	int	pos_a;
@@ -89,6 +106,15 @@ void	ft_fit_a(t_stash *stash)
 		i++;
 	}
 }
+
+/* ft_sort_three() sorts the first three values of stack a.	*
+ * If the first value is greater than the second and third	*
+ * value, it rotates the stack. If the first value is less	*
+ * than the second and third value, it rotates the stack	*
+ * in the opposite direction. If the first value is greater	*
+ * than the second value and less than the third value, it	*
+ * swaps the first and second value. If the first value is	*
+ * less than the second value and greater than the third	*/
 
 void	ft_sort_three(t_stash stash)
 {
@@ -110,8 +136,7 @@ void	ft_sort_three(t_stash stash)
 		{
 			ft_sa(stash);
 		}
-		if (stash.a.stack[0] > stash.a.stack[1] || stash.a.stack[0]
-			> stash.a.stack[2] || stash.a.stack[1] > stash.a.stack[2])
+		if (!ft_is_sorted(stash.a))
 		{
 			ft_sort_three(stash);
 		}

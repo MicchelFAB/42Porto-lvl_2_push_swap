@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:52:08 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/25 15:52:08 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:54:11 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_base
 	int	min_pos;
 	int	mv_a;
 	int	mv_b;
+	int	pushed;
+	int	size;
 }t_base;
 
 typedef struct s_stack

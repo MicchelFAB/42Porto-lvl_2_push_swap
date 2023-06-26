@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:54:34 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/05/25 15:05:08 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/06/26 21:42:47 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,26 @@
 
 void	ft_send_max(t_stash *stash)
 {
-	int	pushed;
-	int	size;
-	int	i;
-
-	size = stash->a.len;
-	pushed = 0;
-	i = 0;
-	while (size > 6 && i < size && pushed < size / 2)
+	stash->base.size = stash->a.len;
+	stash->base.pushed = 0;
+	stash->base.i = 0;
+	while ((!ft_is_sorted(stash->a)) && (stash->base.size > 6 && stash->base.i
+			< stash->base.size && stash->base.pushed < stash->base.size / 2))
 	{
-		if (stash->a.stack[0] <= size / 2)
+		if (stash->a.stack[0] <= stash->base.size / 2)
 		{
 			ft_pb(stash);
-			pushed++;
+			stash->base.pushed++;
 		}
 		else
 			ft_ra(*stash);
-		i++;
+		stash->base.i++;
 	}
-	while (size - pushed > 3)
+	while ((!ft_is_sorted(stash->a)) && (stash->base.size
+			- stash->base.pushed > 3))
 	{
 		ft_pb(stash);
-		pushed++;
+		stash->base.pushed++;
 	}
 	ft_sort_three(*stash);
 }

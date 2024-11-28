@@ -34,14 +34,46 @@ The TURK and RADIX algorithms are popular sorting algorithms, but they have some
 2. It minimizes the number of moves required to sort the stack, which is the primary goal of the project.
 3. It is more adaptable to different stack sizes and configurations, making it a more versatile solution.
 
+## Usage
+
+To use the `push_swap` program, compile the source code and run the executable with a list of integers as arguments. For example:
+
+```sh
+make
+./push_swap 3 2 5 1 4
+```
+
+The program will output a sequence of operations that will sort the stack.
+
 ## Bonus: Checker
 
 The bonus part of the project involves creating a checker program that verifies whether a given sequence of operations correctly sorts the stack. The checker complements the mandatory part of the project by providing a way to validate the correctness of the sorting algorithm.
 
 The checker program reads a sequence of operations from the standard input and applies them to the stack. It then checks if the stack is sorted correctly and outputs "OK" if it is, or "KO" if it is not. This helps ensure that the sorting algorithm works as intended and provides a useful tool for debugging and testing.
 
+## Usage
+
+To use the `checker` program, compile the source code and run the executable with a list of integers as arguments. Then, provide a sequence of operations through standard input. For example:
+
+```sh
+make bonus
+./checker 3 2 5 1 4
+```
+
+Then, input the operations:
+
+```sh
+pb
+pb
+sa
+pa
+pa
+```
+
+The program will output "OK" if the stack is sorted correctly, or "KO" if it is not.
+
 ## References
 
 - This project was inspired by the `push_swap` repository by `mcombeau`. You can find it [here](https://github.com/mcombeau/push_swap).
-- I also used a tester that I forked from [this repository](https://github.com/your-tester-repo).
+- I also used a tester that I forked from [Push-Swap-Tester](https://github.com/MicchelFAB/Push-Swap-Tester).
 
